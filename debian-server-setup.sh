@@ -13,7 +13,8 @@ apt autoremove -y
 
 # Set hostname
 echo "Setting hostname:"
-hostnamectl set-hostname \
+read hostname
+hostnamectl set-hostname $hostname
 
 # Create user account
 echo "Creating user account:"
