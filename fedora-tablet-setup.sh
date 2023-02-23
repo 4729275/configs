@@ -68,6 +68,7 @@ echo "if [ -f ~/.bash_aliases ]; then" | tee -a /home/kenneth/.bashrc
 echo ". ~/.bash_aliases" | tee -a /home/kenneth/.bashrc
 echo "fi" | tee -a /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
+chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up kenneth-tablet'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down kenneth-tablet'" | tee -a /home/kenneth/.bash_aliases
