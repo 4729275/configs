@@ -55,5 +55,16 @@ echo "alias kremote='ssh -i $HOME/.ssh/kenneth-remote -p 31415 kenneth@kenneth-r
 echo "alias kraspi='ssh -i $HOME/.ssh/kenneth-raspi -p 31415 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 echo "alias dnfup='sudo dnf update'" | tee -a /home/kenneth/.bash_aliases
 
+# Fix display issues
+echo "Fixing display issues:"
+if [ -f /etc/modprobe.d/i915.conf ]; then
+	rm /etc/modprobe.d/i915.conf
+fi
+touch /etc/modprobe.d/i915.conf
+echo "options i915 enable_psr=0" | tee -a /etc/modprobe.d/i915.conf
+echo "options i915 enable_guc=3" | tee -a /etc/modprobe.d/i915.conf
+echo "options i915 enable_fbc=1" | tee -a /etc/modprobe.d/i915.conf
+dracut --force
+
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
