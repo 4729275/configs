@@ -10,13 +10,14 @@ echo "Configuring pacman:"
 sed -i 's/#Color/Color/g' /etc/pacman.conf
 sed -i 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
 sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
-sed -i 's/#[multilib]/[multilib]/g' /etc/pacman.conf
-sed -i '$ s/#Include/Include/' /etc/pacman.conf
+echo "[multilib]" | tee -a /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" | tee -a /etc/pacman.conf
 pacman -Sy
 
 # Install packages
 echo "Installing packages:"
 pacman -S --noconfirm audacity audio-convert exa firefox gimp hplip htop inkscape kid3 kleopatra libxcrypt-compat man-db musescore neofetch ntfs-3g obs-studio psensor qt6-wayland rhythmbox steam virt-manager vlc wireguard-tools yt-dlp
+pacman -U https://archive.archlinux.org/packages/q/qt5-webkit-5.212.0alpha4-18-x86_64.pkg.tar.zst
 
 # Create bash aliases
 echo "Creating bash aliases:"
