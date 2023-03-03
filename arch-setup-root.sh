@@ -27,10 +27,10 @@ echo "fi" | tee -a /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
 chown kenneth:users /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
-echo "alias wgup='sudo wg-quick up kenneth-desktop'" | tee -a /home/kenneth/.bash_aliases
-echo "alias wgdn='sudo wg-quick down kenneth-desktop'" | tee -a /home/kenneth/.bash_aliases
-echo "alias kremote='ssh -i \$HOME/.ssh/kenneth-remote -p 31415 kenneth@kenneth-remote.interstateks.com'" | tee -a /home/kenneth/.bash_aliases
-echo "alias kraspi='ssh -i \$HOME/.ssh/kenneth-raspi -p 31415 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
+#echo "alias wgup='sudo wg-quick up kenneth-desktop'" | tee -a /home/kenneth/.bash_aliases
+#echo "alias wgdn='sudo wg-quick down kenneth-desktop'" | tee -a /home/kenneth/.bash_aliases
+#echo "alias kremote='ssh -i \$HOME/.ssh/kenneth-remote -p 31415 kenneth@kenneth-remote.interstateks.com'" | tee -a /home/kenneth/.bash_aliases
+#echo "alias kraspi='ssh -i \$HOME/.ssh/kenneth-raspi -p 31415 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 
 echo "Root portion complete!"
 echo "Run the user portion to continue."
