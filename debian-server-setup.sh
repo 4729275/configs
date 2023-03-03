@@ -26,6 +26,12 @@ usermod -s /bin/bash kenneth
 echo "Installing packages:"
 apt install -y vim neofetch exa htop sudo snap wget
 
+# Configure unattended-upgrades
+echo "Configuring unattended-upgrades:"
+apt install -y unattended-upgrades
+vim /etc/apt/apt.conf.d/50unattended-upgrades
+systemctl enable --now unattended-upgrades
+
 # Set sudo privileges
 echo "Setting sudo privileges:"
 EDITOR=vim visudo
