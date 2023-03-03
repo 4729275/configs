@@ -17,7 +17,7 @@ pacman -Sy
 # Install packages
 echo "Installing packages:"
 pacman -S --noconfirm audacity audio-convert exa firefox gimp hplip htop inkscape kid3 kleopatra libreoffice-still libxcrypt-compat man-db musescore neofetch ntfs-3g obs-studio psensor qt6-wayland rhythmbox steam virt-manager vlc wireguard-tools yt-dlp
-pacman -U https://archive.archlinux.org/packages/q/qt5-webkit-5.212.0alpha4-18-x86_64.pkg.tar.zst
+pacman -U --noconfirm https://archive.archlinux.org/packages/q/qt5-webkit-5.212.0alpha4-18-x86_64.pkg.tar.zst
 
 # Create bash aliases
 echo "Creating bash aliases:"
