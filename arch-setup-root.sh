@@ -31,5 +31,13 @@ echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_a
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 
+# Configure yt-dlp
+echo "Configuring yt-dlp:"
+touch /etc/yt-dlp.conf
+echo "-P /home/kenneth/Downloads/" | tee -a /etc/yt-dlp.conf
+echo "-x" | tee -a /etc/yt-dlp.conf
+echo "--audio-format mp3" | tee -a /etc/yt-dlp.conf
+echo "-o \"%(title)s.%(ext)s\"" | tee -a /etc/yt-dlp.conf
+
 echo "Root portion complete!"
 echo "Run the user portion to continue."
