@@ -42,10 +42,6 @@ echo "Enabling RPM Fusion:"
 dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf groupupdate -y core
 
-# Enable Flathub
-echo "Enabling Flathub:"
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
 # Set hostname
 echo "Setting hostname:"
 read hostname
@@ -53,6 +49,7 @@ hostnamectl set-hostname $hostname
 
 # Enable multimedia codecs
 echo "Enabling multimedia codecs:"
+dnf swap -y ffmpeg-free ffmpeg --allowerasing
 dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 dnf groupupdate -y sound-and-video
 dnf install -y intel-media-driver
