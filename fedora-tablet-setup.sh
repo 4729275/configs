@@ -50,13 +50,12 @@ hostnamectl set-hostname $hostname
 # Configure swap
 echo "Configuring swap:"
 dnf remove -y zram-generator-defaults
-cd /
-btrfs subvolume create /swap
 cd /swap
 echo "Enter desired swap size:"
 read swapsize
 btrfs filesystem mkswapfile --size $swapsize swapfile
 swapon swapfile
+cd /home/kenneth
 echo "/swap/swapfile none swap sw 0 0" | tee -a /etc/fstab
 
 # Enable multimedia codecs
