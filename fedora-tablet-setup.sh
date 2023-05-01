@@ -70,6 +70,8 @@ echo "Installing packages:"
 dnf install -y exa gnome-extensions-app gnome-tweaks google-roboto-fonts htop kleopatra krita neofetch nextcloud-client vim-enhanced wireguard-tools xournalpp xsensors
 flatpak install -y flathub com.github.GradienceTeam.Gradience
 flatpak install -y flathub us.zoom.Zoom
+flatpak override --filesystem=xdg-config/gtk-4.0
+flatpak override --filesystem=xdg-config/gtk-3.0
 
 # Create bash aliases
 echo "Creating bash aliases:"
