@@ -58,6 +58,7 @@ dnf install -y intel-media-driver
 echo "Installing packages:"
 dnf install -y exa gnome-extensions-app gnome-tweaks google-roboto-fonts htop kleopatra krita neofetch nextcloud-client vim-enhanced wireguard-tools xournalpp xsensors
 flatpak install -y flathub com.github.GradienceTeam.Gradience
+flatpak install -y flathub us.zoom.Zoom
 
 # Create bash aliases
 echo "Creating bash aliases:"
