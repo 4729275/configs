@@ -71,7 +71,7 @@ echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /hom
 echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
-echo "alias dnfup='sudo dnf update'" | tee -a /home/kenneth/.bash_aliases
+echo "alias dnfup='sudo dnf update && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
