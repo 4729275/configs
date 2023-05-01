@@ -28,7 +28,7 @@ hostnamectl set-hostname $hostname
 
 # Configure swap
 echo "Configuring swap:"
-dnf remove -y zram-generator-defaults
+touch /etc/systemd/zram-generator.conf
 cd /swap
 echo "Enter desired swap size:"
 read swapsize
