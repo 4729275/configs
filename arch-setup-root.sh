@@ -26,6 +26,7 @@ echo ". ~/.bash_aliases" | tee -a /home/kenneth/.bashrc
 echo "fi" | tee -a /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
 chown kenneth:users /home/kenneth/.bash_aliases
+echo "alias pacup='paru && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
