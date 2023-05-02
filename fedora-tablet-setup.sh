@@ -47,17 +47,6 @@ echo "Setting hostname:"
 read hostname
 hostnamectl set-hostname $hostname
 
-# Configure swap
-echo "Configuring swap:"
-touch /etc/systemd/zram-generator.conf
-cd /swap
-echo "Enter desired swap size:"
-read swapsize
-btrfs filesystem mkswapfile --size $swapsize swapfile
-swapon swapfile
-cd /home/kenneth
-echo "/swap/swapfile none swap sw 0 0" | tee -a /etc/fstab
-
 # Enable multimedia codecs
 echo "Enabling multimedia codecs:"
 dnf swap -y ffmpeg-free ffmpeg --allowerasing
@@ -67,8 +56,9 @@ dnf install -y intel-media-driver
 
 # Install packages
 echo "Installing packages:"
-dnf install -y exa gnome-extensions-app gnome-tweaks google-roboto-fonts htop kleopatra krita neofetch nextcloud-client vim-enhanced wireguard-tools xournalpp xsensors
+dnf install -y exa gnome-extensions-app gnome-tweaks google-roboto-fonts htop kleopatra krita neofetch nextcloud-client thunderbird vim-enhanced wireguard-tools xournalpp xsensors
 flatpak install -y flathub com.github.GradienceTeam.Gradience
+flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub us.zoom.Zoom
 
 # Create bash aliases
