@@ -18,8 +18,6 @@ pacman -Sy
 echo "Installing packages:"
 pacman -S --noconfirm audacity audio-convert brasero exa firefox gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-still libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland rhythmbox steam thunderbird virt-manager vlc wireguard-tools yt-dlp
 pacman -U --noconfirm https://archive.archlinux.org/packages/q/qt5-webkit-5.212.0alpha4-18-x86_64.pkg.tar.zst
-flatpak override --filesystem=xdg-config/gtk-4.0
-flatpak override --filesystem=xdg-config/gtk-3.0
 
 # Create bash aliases
 echo "Creating bash aliases:"
