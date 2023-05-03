@@ -64,5 +64,9 @@ echo "options i915 enable_guc=3" | tee -a /etc/modprobe.d/i915.conf
 echo "options i915 enable_fbc=1" | tee -a /etc/modprobe.d/i915.conf
 dracut --force
 
+# Enable fractional scaling
+echo "Enabling fractional scaling:"
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
