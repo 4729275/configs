@@ -74,5 +74,9 @@ echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 echo "alias dnfup='sudo dnf update && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 
+# Enable fractional scaling
+echo "Enabling fractional scaling:"
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
