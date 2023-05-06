@@ -1,9 +1,9 @@
 #! /bin/bash
 
-### Arch Linux Setup Script - Root Portion ###
+### Arch Linux GNOME Setup Script - Root Portion ###
 # Kenneth Simmons, 2023
 
-echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2023"
+echo "Arch Linux Setup for GNOME - Root Portion - Kenneth Simmons, 2023"
 
 # Configure pacman
 echo "Configuring pacman:"
