@@ -76,6 +76,7 @@ echo "alias dnfup='sudo dnf update && flatpak update'" | tee -a /home/kenneth/.b
 
 # Enable fractional scaling
 echo "Enabling fractional scaling:"
+su kenneth
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 echo "Complete!"
