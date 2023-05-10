@@ -32,6 +32,12 @@ echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_a
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 
+# Enable numlock on SDDM
+echo "Enabling numlock on SDDM:"
+touch /etc/sddm.conf
+echo "[General]" | tee -a /etc/sddm.conf
+echo "Numlock=on" | tee -a /etc/sddm.conf
+
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
 touch /etc/yt-dlp.conf
