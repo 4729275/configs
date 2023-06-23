@@ -36,6 +36,10 @@ systemctl enable --now unattended-upgrades
 echo "Setting sudo privileges:"
 EDITOR=vim visudo
 
+# Setup monthly reboots
+echo "Setting up monthly reboots:"
+echo "0 0 1 * * root /sbin/reboot" | tee -a /etc/crontab
+
 # Create bash aliases
 echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
