@@ -22,6 +22,10 @@ wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/qt5-w
 cd -
 pacman -U --noconfirm /home/kenneth/Downloads/qt5-webkit-5.212.0alpha4-19-x86_64.pkg.tar.zst
 
+# Configure bash prompt
+echo "Configuring bash prompt:"
+sed -i "s/PS1='[\u@\h \W]\$ '/PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '/g" /home/kenneth/.bashrc
+
 # Create bash aliases
 echo "Creating bash aliases:"
 echo "if [ -f ~/.bash_aliases ]; then" | tee -a /home/kenneth/.bashrc
