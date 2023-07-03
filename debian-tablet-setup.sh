@@ -13,6 +13,16 @@ sed -i '1,2d' /etc/apt/sources.list
 echo "Updating the system:"
 apt update -y && apt full-upgrade -y && apt autoremove -y
 
+# Install linux-surface
+echo "Installing linux-surface:"
+wget -qO - https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc | gpg --dearmor | dd of=/etc/apt/trusted.gpg.d/linux-surface.gpg
+echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" | tee /etc/apt/sources.list.d/linux-surface.list
+apt update -y
+apt install -y linux-image-surface linux-headers-surface libwacom-surface iptsd
+apt install -y linux-surface-secureboot-mok
+apt install -y firmware-atheros surface-ath10k-firmware-override
+update-grub
+
 # Install packages
 echo "Installing packages:"
 apt install -y dbus-x11 exa flatpak fonts-roboto git gnome-software-plugin-flatpak htop neofetch nextcloud-desktop psensor thunderbird ttf-mscorefonts-installer vim wireguard-tools xournalpp
