@@ -61,6 +61,10 @@ flatpak install -y flathub com.github.GradienceTeam.Gradience
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub us.zoom.Zoom
 
+# Configure bash prompt
+echo "Configuring bash prompt:"
+echo "PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" | tee -a /home/kenneth/.bashrc
+
 # Create bash aliases
 echo "Creating bash aliases:"
 echo "if [ -f ~/.bash_aliases ]; then" | tee -a /home/kenneth/.bashrc
