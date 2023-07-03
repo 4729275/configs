@@ -32,6 +32,11 @@ tar -xf adw-gtk3v4-8.tar.xz
 rm adw-gtk3v4-8.tar.xz
 cd
 
+# Configure GRUB
+echo "Configuring GRUB:"
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+update-grub
+
 # Create bash aliases
 echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
