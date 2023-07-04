@@ -25,13 +25,12 @@ update-grub
 
 # Install packages
 echo "Installing packages:"
-apt install -y dbus-x11 exa flatpak fonts-roboto gnome-software-plugin-flatpak htop neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird ttf-mscorefonts-installer vim wireguard-tools xournalpp
+apt install -y dbus-x11 exa flatpak fonts-roboto gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird ttf-mscorefonts-installer vim wireguard-tools xournalpp
 apt remove -y firefox-esr libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub com.github.GradienceTeam.Gradience
-flatpak install -y flathub org.kde.kleopatra
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub us.zoom.Zoom
@@ -65,6 +64,10 @@ echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove &&
 echo "Enabling fractional scaling:"
 su kenneth
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
+# Installing systemd-resolved
+echo "Installing systemd-resolved:"
+apt install -y systemd-resolved
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
