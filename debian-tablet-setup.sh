@@ -61,15 +61,15 @@ echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 
-# Enable fractional scaling
-echo "Enabling fractional scaling:"
-su kenneth
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
 apt install -y systemd-resolved
 systemctl enable --now systemd-resolved
+
+# Enable fractional scaling
+echo "Enabling fractional scaling:"
+su kenneth
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
