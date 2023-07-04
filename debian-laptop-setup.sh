@@ -16,7 +16,7 @@ apt update -y && apt full-upgrade -y && apt autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt install -y audacity dbus-x11 exa flatpak fonts-roboto gimp git gnome-software-plugin-flatpak htop neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird tilem timeshift ttf-mscorefonts-installer vim vlc wireguard-tools
+apt install -y audacity dbus-x11 exa flatpak fonts-roboto gimp gnome-software-plugin-flatpak htop neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird tilem timeshift ttf-mscorefonts-installer vim vlc wireguard-tools
 apt remove -y firefox-esr libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
