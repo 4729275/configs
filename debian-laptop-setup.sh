@@ -70,6 +70,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
 apt install -y systemd-resolved
+systemctl enable --now systemd-resolved
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
