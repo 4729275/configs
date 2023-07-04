@@ -62,15 +62,15 @@ echo "options i915 enable_guc=3" | tee -a /etc/modprobe.d/i915.conf
 echo "options i915 enable_fbc=1" | tee -a /etc/modprobe.d/i915.conf
 update-initramfs -u
 
-# Enable fractional scaling
-echo "Enabling fractional scaling:"
-su kenneth
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
 apt install -y systemd-resolved
 systemctl enable --now systemd-resolved
+
+# Enable fractional scaling
+echo "Enabling fractional scaling:"
+su kenneth
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
