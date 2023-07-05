@@ -18,7 +18,7 @@ hostnamectl set-hostname $hostname
 
 # Install packages
 echo "Installing packages:"
-apt install -y vim neofetch exa htop sudo snap wget
+apt install -y vim neofetch exa htop wget
 
 # Create bash aliases
 echo "Creating bash aliases:"
