@@ -11,11 +11,6 @@ apt update
 apt dist-upgrade -y
 apt autoremove -y
 
-# Set hostname
-echo "Setting hostname:"
-read hostname
-hostnamectl set-hostname $hostname
-
 # Install packages
 echo "Installing packages:"
 apt install -y vim neofetch exa htop wget
