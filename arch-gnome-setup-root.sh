@@ -39,6 +39,11 @@ echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_a
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 
+# Configure systemd timeouts
+echo "Configuring systemd timeouts:"
+sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
+sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
+
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
 touch /etc/yt-dlp.conf
