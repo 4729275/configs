@@ -78,6 +78,11 @@ echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 echo "alias dnfup='sudo dnf update && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 
+# Configure systemd timeouts
+echo "Configuring systemd timeouts:"
+sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
+sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
+
 # Enable fractional scaling
 echo "Enabling fractional scaling:"
 su kenneth
