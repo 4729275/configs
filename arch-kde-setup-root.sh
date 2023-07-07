@@ -45,6 +45,11 @@ touch /etc/sddm.conf
 echo "[General]" | tee -a /etc/sddm.conf
 echo "Numlock=on" | tee -a /etc/sddm.conf
 
+# Configure systemd timeouts
+echo "Configuring systemd timeouts:"
+sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
+sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
+
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
 touch /etc/yt-dlp.conf
