@@ -16,7 +16,7 @@ pacman -Sy
 
 # Install packages
 echo "Installing packages:"
-pacman -S --noconfirm audacity audio-convert exa firefox gimp handbrake hplip htop inkscape kid3 libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland steam thunderbird virt-manager wireguard-tools
+pacman -S --noconfirm audacity audio-convert exa firefox gimp handbrake hplip htop inkscape kid3 libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland steam thunderbird ufw virt-manager wireguard-tools
 cd /home/kenneth/Downloads
 wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/qt5-webkit-5.212.0alpha4-19-x86_64.pkg.tar.zst ### UPDATE LINK IF IT BECOMES OBSOLETE ###
 cd -
@@ -44,6 +44,13 @@ echo "Enabling numlock on SDDM:"
 touch /etc/sddm.conf
 echo "[General]" | tee -a /etc/sddm.conf
 echo "Numlock=on" | tee -a /etc/sddm.conf
+
+# Configure firewall
+echo "Configuring firewall:"
+systemctl enable --now ufw
+ufw default allow outgoing
+ufw default deny incoming
+ufw enable
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
