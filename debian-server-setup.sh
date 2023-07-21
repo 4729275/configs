@@ -24,7 +24,7 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt install -y vim neofetch exa htop sudo snap wget
+apt install -y vim neofetch exa htop sudo snap ufw wget
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
@@ -49,4 +49,4 @@ chown kenneth:users /home/kenneth/.bash_aliases
 
 echo "Complete!"
 echo "Reboot the server to finalize changes."
-echo "Remember to set up SSH keys!"
+echo "Remember to set up firewall and SSH keys!"
