@@ -16,7 +16,7 @@ pacman -Sy
 
 # Install packages
 echo "Installing packages:"
-pacman -S --noconfirm audacity audio-convert brasero exa firefox gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland rhythmbox steam thunderbird virt-manager vlc wireguard-tools yt-dlp
+pacman -S --noconfirm audacity audio-convert brasero exa firefox gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland rhythmbox steam thunderbird ufw virt-manager vlc wireguard-tools yt-dlp
 cd /home/kenneth/Downloads
 wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/qt5-webkit-5.212.0alpha4-19-x86_64.pkg.tar.zst ### UPDATE LINK IF IT BECOMES OBSOLETE ###
 cd -
@@ -43,6 +43,13 @@ echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'"
 echo "Configuring systemd timeouts:"
 sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
 sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
+
+# Configure firewall
+echo "Configuring firewall:"
+systemctl enable --now ufw
+ufw default allow outgoing
+ufw default deny incoming
+ufw enable
 
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
