@@ -16,7 +16,7 @@ apt update -y && apt full-upgrade -y && apt autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt install -y audacity dbus-x11 exa flatpak fonts-roboto gimp gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird tilem timeshift ttf-mscorefonts-installer vim vlc wireguard-tools
+apt install -y audacity dbus-x11 exa flatpak fonts-roboto gimp gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird tilem timeshift ttf-mscorefonts-installer ufw vim vlc wireguard-tools
 apt remove -y firefox-esr libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -50,6 +50,13 @@ echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_a
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove && flatpak update'" | tee -a /home/kenneth/.bash_aliases
+
+# Configure firewall
+echo "Configuring firewall:"
+systemctl enable --now ufw
+ufw default allow outgoing
+ufw default deny incoming
+ufw enable
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
