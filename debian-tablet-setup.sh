@@ -25,7 +25,7 @@ update-grub
 
 # Install packages
 echo "Installing packages:"
-apt install -y dbus-x11 exa flatpak fonts-roboto gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator thunderbird ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
+apt install -y dbus-x11 exa flatpak fonts-roboto gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
 apt remove -y firefox-esr libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -34,6 +34,7 @@ flatpak install -y flathub com.github.GradienceTeam.Gradience
 flatpak install -y flathub org.kde.krita
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
+flatpak install -y flathub org.mozilla.Thunderbird
 flatpak install -y flathub us.zoom.Zoom
 cd /usr/share/themes
 wget https://github.com/lassekongo83/adw-gtk3/releases/download/v4.8/adw-gtk3v4-8.tar.xz
