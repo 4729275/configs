@@ -24,7 +24,7 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt install -y ca-certificates curl exa gnupg htop neofetch snap sudo ufw vim wget
+apt install -y exa htop neofetch snap sudo ufw vim wget
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
