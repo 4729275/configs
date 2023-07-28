@@ -24,7 +24,7 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt install -y ca-certificates curl exa gnupg htop neofetch snap sudo ufw vim wget
+apt install -y ca-certificates curl exa gnupg htop neofetch snapd sudo ufw vim wget
 
 # Install docker
 echo "Installing docker:"
