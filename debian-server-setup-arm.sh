@@ -3,7 +3,7 @@
 ### Debian Server Setup Script ###
 # Kenneth Simmons, 2023
 
-echo "Debian Server Setup - Kenneth Simmons, 2023"
+echo "Debian Server Setup - ARM - Kenneth Simmons, 2023"
 
 # Update the system
 echo "Updating the system:"
