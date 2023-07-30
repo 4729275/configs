@@ -80,10 +80,5 @@ echo "Installing systemd-resolved:"
 apt install -y systemd-resolved
 systemctl enable --now systemd-resolved
 
-# Enable fractional scaling
-echo "Enabling fractional scaling:"
-su kenneth
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
