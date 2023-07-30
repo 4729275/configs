@@ -18,7 +18,7 @@ hostnamectl set-hostname $hostname
 
 # Create user account
 echo "Creating user account:"
-useradd -m -g kenneth -G sudo kenneth
+useradd -m -G sudo kenneth
 passwd kenneth
 usermod -s /bin/bash kenneth
 
