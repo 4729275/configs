@@ -18,7 +18,7 @@ hostnamectl set-hostname $hostname
 
 # Create user account
 echo "Creating user account:"
-useradd -m -g users -G sudo kenneth
+useradd -m -g kenneth -G sudo kenneth
 passwd kenneth
 usermod -s /bin/bash kenneth
 
@@ -34,16 +34,12 @@ chmod a+r /etc/apt/keyrings/docker.gpg
 echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt update
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+usermod -aG docker kenneth
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
 apt install -y unattended-upgrades
-vim /etc/apt/apt.conf.d/50unattended-upgrades
 systemctl enable --now unattended-upgrades
-
-# Set sudo privileges
-echo "Setting sudo privileges:"
-EDITOR=vim visudo
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
@@ -54,7 +50,7 @@ echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
-chown kenneth:users /home/kenneth/.bash_aliases
+chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
 echo "Reboot the server to finalize changes."
