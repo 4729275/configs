@@ -25,11 +25,6 @@ apt update
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 usermod -aG docker kenneth
 
-# Configure unattended-upgrades
-echo "Configuring unattended-upgrades:"
-apt install -y unattended-upgrades
-systemctl enable --now unattended-upgrades
-
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
 echo "0 0 1 * * root /sbin/reboot" | tee -a /etc/crontab
