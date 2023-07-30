@@ -11,11 +11,6 @@ apt update
 apt dist-upgrade -y
 apt autoremove -y
 
-# Set hostname
-echo "Setting hostname:"
-read hostname
-hostnamectl set-hostname $hostname
-
 # Create user account
 echo "Creating user account:"
 useradd -m -G sudo kenneth
