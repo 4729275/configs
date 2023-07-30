@@ -11,12 +11,6 @@ apt update
 apt dist-upgrade -y
 apt autoremove -y
 
-# Create user account
-echo "Creating user account:"
-useradd -m -G sudo kenneth
-passwd kenneth
-usermod -s /bin/bash kenneth
-
 # Install packages
 echo "Installing packages:"
 apt install -y ca-certificates curl exa gnupg htop neofetch snapd sudo ufw vim wget
