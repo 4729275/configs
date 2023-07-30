@@ -18,7 +18,7 @@ hostnamectl set-hostname $hostname
 
 # Create user account
 echo "Creating user account:"
-useradd -m -g users -G sudo kenneth
+useradd -m -g kenneth -G sudo kenneth
 passwd kenneth
 usermod -s /bin/bash kenneth
 
@@ -29,12 +29,7 @@ apt install -y exa htop neofetch snapd sudo ufw vim wget
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
 apt install -y unattended-upgrades
-vim /etc/apt/apt.conf.d/50unattended-upgrades
 systemctl enable --now unattended-upgrades
-
-# Set sudo privileges
-echo "Setting sudo privileges:"
-EDITOR=vim visudo
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
@@ -45,7 +40,7 @@ echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
-chown kenneth:users /home/kenneth/.bash_aliases
+chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
 echo "Reboot the server to finalize changes."
