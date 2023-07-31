@@ -11,6 +11,16 @@ apt update
 apt dist-upgrade -y
 apt autoremove -y
 
+# Configure locales
+echo "Configuring locales:"
+sed -i 's/# en_CA ISO-8859-1/en_CA ISO-8859-1/g' /etc/locale.gen
+sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
+sed -i 's/# en_US ISO-8859-1/en_US ISO-8859-1/g' /etc/locale.gen
+sed -i 's/# en_US.ISO-8859-15 ISO-8859-15/en_US.ISO-8859-15 ISO-8859-15/g' /etc/locale.gen
+sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+echo "LANG=en_CA.UTF-8" | tee -a /etc/locale.conf
+locale-gen
+
 # Set hostname
 echo "Setting hostname:"
 read hostname
