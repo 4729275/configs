@@ -1,6 +1,6 @@
 #! /bin/bash
 
-### Debian Server Setup Script ###
+### Debian Server Setup Script for ARM ###
 # Kenneth Simmons, 2023
 
 echo "Debian Server Setup - ARM - Kenneth Simmons, 2023"
