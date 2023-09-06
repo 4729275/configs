@@ -16,7 +16,7 @@ apt update -y && apt full-upgrade -y && apt autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim vlc wireguard-tools
+apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
 apt remove -y firefox-esr libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -31,6 +31,7 @@ wget https://github.com/lassekongo83/adw-gtk3/releases/download/v4.8/adw-gtk3v4-
 tar -xf adw-gtk3v4-8.tar.xz
 rm adw-gtk3v4-8.tar.xz
 cd
+usermod -aG libvirt kenneth
 
 # Setup swap-on-zram
 echo "Setting up swap-on-zram:"
