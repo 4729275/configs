@@ -30,6 +30,7 @@ echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
+echo "alias aptup='ssh -i $HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
