@@ -5,6 +5,10 @@
 
 echo "Debian Server Setup - Pre-Installed System - Kenneth Simmons, 2023"
 
+# Set apt sources
+echo "Setting apt sources:"
+sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list
+
 # Update the system
 echo "Updating the system:"
 apt update
