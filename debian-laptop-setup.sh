@@ -21,7 +21,6 @@ apt remove -y firefox-esr libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.mozilla.firefox
-flatpak install -y flathub com.github.GradienceTeam.Gradience
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.mozilla.Thunderbird
