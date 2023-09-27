@@ -63,7 +63,7 @@ echo "0 0 1 * * root /sbin/reboot" | tee -a /etc/crontab
 # Create bash aliases
 echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
-echo "alias ls='exa -al --group-directories-first --color=always'" | tee -a /home/kenneth/.bash_aliases
+echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
