@@ -57,7 +57,6 @@ dnf install -y intel-media-driver
 # Install packages
 echo "Installing packages:"
 dnf install -y exa gnome-extensions-app gnome-tweaks google-roboto-fonts htop kleopatra krita neofetch nextcloud-client thunderbird vim-enhanced wireguard-tools xournalpp xsensors
-flatpak install -y flathub com.github.GradienceTeam.Gradience
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub us.zoom.Zoom
 
