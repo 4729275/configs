@@ -12,7 +12,8 @@ usermod -aG vboxusers kenneth
 cd /home/kenneth/Downloads
 wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst ### UPDATE LINK IF IT BECOMES OBSOLETE ###
 cd -
-pacman -U --noconfirm /home/kenneth/Downloads/qt5-webkit-5.212.0alpha4-19-x86_64.pkg.tar.zst
+pacman -U --noconfirm /home/kenneth/Downloads/qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst
+rm /home/kenneth/Downloads/qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
