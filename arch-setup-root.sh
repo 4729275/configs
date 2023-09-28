@@ -10,10 +10,11 @@ echo "Installing packages:"
 pacman -S --noconfirm audacity audio-convert brasero exa gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland steam ufw virt-manager virtualbox vlc wireguard-tools yt-dlp
 usermod -aG vboxusers kenneth
 cd /home/kenneth/Downloads
-wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst ### UPDATE LINK IF IT BECOMES OBSOLETE ###
+QT5_WEBKIT_PKGNAME=qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst ### Update as new versions release ###
+wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/$QT5_WEBKIT_PKGNAME
+pacman -U --noconfirm $QT5_WEBKIT_PKGNAME
+rm $QT5_WEBKIT_PKGNAME
 cd -
-pacman -U --noconfirm /home/kenneth/Downloads/qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst
-rm /home/kenneth/Downloads/qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
