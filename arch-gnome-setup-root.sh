@@ -5,15 +5,6 @@
 
 echo "Arch Linux Setup for GNOME - Root Portion - Kenneth Simmons, 2023"
 
-# Configure pacman
-echo "Configuring pacman:"
-sed -i 's/#Color/Color/g' /etc/pacman.conf
-sed -i 's/#VerbosePkgLists/VerbosePkgLists/g' /etc/pacman.conf
-sed -i 's/#ParallelDownloads/ParallelDownloads/g' /etc/pacman.conf
-echo "[multilib]" | tee -a /etc/pacman.conf
-echo "Include = /etc/pacman.d/mirrorlist" | tee -a /etc/pacman.conf
-pacman -Sy
-
 # Install packages
 echo "Installing packages:"
 pacman -S --noconfirm audacity audio-convert brasero exa gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland steam ufw virt-manager virtualbox vlc wireguard-tools yt-dlp
