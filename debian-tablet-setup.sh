@@ -34,7 +34,6 @@ flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub org.kde.krita
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
-flatpak install -y flathub org.mozilla.Thunderbird
 flatpak install -y flathub us.zoom.Zoom
 
 # Setup swap-on-zram
