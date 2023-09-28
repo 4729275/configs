@@ -25,9 +25,10 @@ update-grub
 
 # Install packages
 echo "Installing packages:"
-apt install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
+apt install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-resolved systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
 apt remove -y firefox-esr gnome-terminal libreoffice*
 apt autoremove -y
+systemctl enable --now systemd-resolved
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub org.kde.krita
@@ -67,11 +68,6 @@ ufw enable
 echo "Configuring systemd timeouts:"
 sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
 sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
-
-# Installing systemd-resolved
-echo "Installing systemd-resolved:"
-apt install -y systemd-resolved
-systemctl enable --now systemd-resolved
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
