@@ -25,8 +25,8 @@ update-grub
 
 # Install packages
 echo "Installing packages:"
-apt install -y curl dbus-x11 exa flatpak fonts-roboto gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
-apt remove -y firefox-esr libreoffice*
+apt install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
+apt remove -y firefox-esr gnome-terminal libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.mozilla.firefox
@@ -35,11 +35,6 @@ flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.mozilla.Thunderbird
 flatpak install -y flathub us.zoom.Zoom
-cd /usr/share/themes
-wget https://github.com/lassekongo83/adw-gtk3/releases/download/v4.8/adw-gtk3v4-8.tar.xz
-tar -xf adw-gtk3v4-8.tar.xz
-rm adw-gtk3v4-8.tar.xz
-cd
 
 # Setup swap-on-zram
 echo "Setting up swap-on-zram:"
