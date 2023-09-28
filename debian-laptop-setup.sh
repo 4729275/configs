@@ -16,9 +16,10 @@ apt update -y && apt full-upgrade -y && apt autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop nvidia-driver psensor systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
+apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop nvidia-driver psensor systemd-resolved systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
 apt remove -y firefox-esr gnome-terminal libreoffice*
 apt autoremove -y
+systemctl enable --now systemd-resolved
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub org.libreoffice.LibreOffice
@@ -69,11 +70,6 @@ echo "options i915 enable_psr=0" | tee -a /etc/modprobe.d/i915.conf
 echo "options i915 enable_guc=3" | tee -a /etc/modprobe.d/i915.conf
 echo "options i915 enable_fbc=1" | tee -a /etc/modprobe.d/i915.conf
 update-initramfs -u
-
-# Installing systemd-resolved
-echo "Installing systemd-resolved:"
-apt install -y systemd-resolved
-systemctl enable --now systemd-resolved
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
