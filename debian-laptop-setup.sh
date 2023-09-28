@@ -25,11 +25,6 @@ flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.mozilla.Thunderbird
 flatpak install -y flathub us.zoom.Zoom
-cd /usr/share/themes
-wget https://github.com/lassekongo83/adw-gtk3/releases/download/v4.8/adw-gtk3v4-8.tar.xz
-tar -xf adw-gtk3v4-8.tar.xz
-rm adw-gtk3v4-8.tar.xz
-cd
 usermod -aG libvirt kenneth
 
 # Setup swap-on-zram
