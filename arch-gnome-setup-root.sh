@@ -1,9 +1,9 @@
 #! /bin/bash
 
-### Arch Linux GNOME Setup Script - Root Portion ###
+### Arch Linux Setup Script - Root Portion ###
 # Kenneth Simmons, 2023
 
-echo "Arch Linux Setup for GNOME - Root Portion - Kenneth Simmons, 2023"
+echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2023"
 
 # Install packages
 echo "Installing packages:"
