@@ -24,7 +24,6 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
-flatpak install -y flathub org.mozilla.Thunderbird
 flatpak install -y flathub us.zoom.Zoom
 usermod -aG libvirt kenneth
 
