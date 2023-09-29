@@ -8,14 +8,14 @@ echo "Arch Linux Setup - User Portion - Kenneth Simmons, 2023"
 # Install AUR helper
 cd /home/kenneth
 echo "Installing AUR helper - manual confirmation required:"
-git clone https://aur.archlinux.org/paru-bin .paru
-cd .paru
+git clone https://aur.archlinux.org/paru-bin
+cd paru-bin
 makepkg -si
 cd ..
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S adw-gtk3 amdgpu-pro-oglp davinci-resolve google-earth-pro gtkpod libtxc_dxtn opencl-amd teamviewer tilem tilp timeshift-bin ttf-ms-fonts ttf-roboto-fontconfig ventoy-bin
+paru -S amdgpu-pro-oglp davinci-resolve google-earth-pro gtkpod libtxc_dxtn opencl-amd teamviewer tilem tilp timeshift-bin ttf-ms-fonts ttf-roboto-fontconfig ventoy-bin
 paru -R opencl-mesa
 sudo systemctl enable --now teamviewerd
 
