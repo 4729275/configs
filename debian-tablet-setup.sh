@@ -20,7 +20,6 @@ echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" | tee /
 apt update -y
 apt install -y linux-image-surface linux-headers-surface libwacom-surface iptsd
 apt install -y linux-surface-secureboot-mok
-apt install -y firmware-atheros surface-ath10k-firmware-override
 update-grub
 
 # Install packages
