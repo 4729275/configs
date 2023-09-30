@@ -7,7 +7,7 @@ echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2023"
 
 # Install packages
 echo "Installing packages:"
-pacman -S --noconfirm audacity audio-convert brasero dnsmasq exa gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-base qt6-wayland steam ufw virt-manager virtualbox vlc wireguard-tools yt-dlp
+pacman -S --noconfirm audacity audio-convert brasero dnsmasq exa gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-full qt6-wayland steam ufw virt-manager virtualbox vlc wireguard-tools yt-dlp
 usermod -aG libvirt kenneth
 usermod -aG vboxusers kenneth
 cd /home/kenneth/Downloads
