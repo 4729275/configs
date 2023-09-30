@@ -7,7 +7,6 @@ echo "Debian Laptop Setup - Kenneth Simmons, 2023"
 
 # Configure APT
 echo "Configuring APT:"
-sed -i '1,2d' /etc/apt/sources.list
 sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
 
 # Update the system
@@ -16,15 +15,27 @@ apt update -y && apt full-upgrade -y && apt autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop nvidia-driver psensor systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
+apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
 apt remove -y firefox-esr gnome-terminal libreoffice*
 apt autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub org.gtk.Gtk3theme.Adwaita-dark
 flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub us.zoom.Zoom
 usermod -aG libvirt kenneth
+
+# Install nvidia driver
+echo "Installing nVIDIA driver:"
+apt install nvidia-driver
+echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1"' > /etc/default/grub.d/nvidia-modeset.cfg
+update-grub
+cp /usr/share/doc/xserver-xorg-video-nvidia/examples/nvidia-sleep.sh /usr/bin
+cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system-sleep/nvidia /usr/lib/systemd/system-sleep
+cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system/nvidia-* /etc/systemd/system/
+systemctl daemon-reload && systemctl enable nvidia-hibernate nvidia-resume nvidia-suspend
+ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 
 # Setup swap-on-zram
 echo "Setting up swap-on-zram:"
