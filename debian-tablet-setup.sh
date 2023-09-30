@@ -11,6 +11,7 @@ apt update -y && apt full-upgrade -y && apt autoremove -y
 
 # Install linux-surface
 echo "Installing linux-surface:"
+apt install -y wget
 wget -qO - https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc | gpg --dearmor | dd of=/etc/apt/trusted.gpg.d/linux-surface.gpg
 echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" | tee /etc/apt/sources.list.d/linux-surface.list
 apt update -y
