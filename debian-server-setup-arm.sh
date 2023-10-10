@@ -34,7 +34,8 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt install -y exa htop neofetch snapd sudo ufw vim wget
+apt install -y docker.io docker-compose exa htop neofetch snapd sudo ufw vim wget
+usermod -aG docker kenneth
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
