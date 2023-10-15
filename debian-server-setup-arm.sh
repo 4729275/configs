@@ -42,6 +42,11 @@ echo "Configuring unattended-upgrades:"
 apt install -y unattended-upgrades
 systemctl enable --now unattended-upgrades
 
+# Configure GRUB
+echo "Configuring GRUB:"
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+update-grub
+
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
 echo "0 0 1 * * root /sbin/reboot" | tee -a /etc/crontab
