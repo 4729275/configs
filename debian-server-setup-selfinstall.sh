@@ -26,6 +26,11 @@ apt update
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 usermod -aG docker kenneth
 
+# Configure GRUB
+echo "Configuring GRUB:"
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+update-grub
+
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
 echo "0 0 1 * * root /sbin/reboot" | tee -a /etc/crontab
