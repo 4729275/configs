@@ -31,10 +31,11 @@ echo "Installing nVIDIA driver:"
 apt install nvidia-driver
 echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1"' > /etc/default/grub.d/nvidia-modeset.cfg
 update-grub
-cp /usr/share/doc/xserver-xorg-video-nvidia/examples/nvidia-sleep.sh /usr/bin
+cp /usr/share/doc/xserver-xorg-video-nvidia/examples/nvidia-sleep.sh /usr/bin/
 cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system-sleep/nvidia /usr/lib/systemd/system-sleep
 cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system/nvidia-* /etc/systemd/system/
 systemctl daemon-reload && systemctl enable nvidia-hibernate nvidia-resume nvidia-suspend
+echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1" > /etc/modprobe.d/nvidia-power-management.conf
 ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 
 # Setup swap-on-zram
