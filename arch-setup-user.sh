@@ -12,6 +12,7 @@ git clone https://aur.archlinux.org/paru-bin
 cd paru-bin
 makepkg -si
 cd ..
+rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
