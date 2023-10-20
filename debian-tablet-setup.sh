@@ -49,7 +49,6 @@ chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
-echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 
 # Configure firewall
