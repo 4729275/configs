@@ -34,7 +34,6 @@ echo "alias pacup='paru && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
-echo "alias khome='ssh -i \$HOME/.ssh/kenneth-home -p 314 kenneth@192.168.1.20'" | tee -a /home/kenneth/.bash_aliases
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
