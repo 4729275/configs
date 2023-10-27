@@ -5,25 +5,22 @@
 
 echo "Debian Tablet Setup - Kenneth Simmons, 2023"
 
-# Update the system
-echo "Updating the system:"
-apt update -y && apt full-upgrade -y && apt autoremove -y
-
 # Install linux-surface
 echo "Installing linux-surface:"
-apt install -y wget
+apt-get update
+apt-get install -y wget
 wget -qO - https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc | gpg --dearmor | dd of=/etc/apt/trusted.gpg.d/linux-surface.gpg
 echo "deb [arch=amd64] https://pkg.surfacelinux.com/debian release main" | tee /etc/apt/sources.list.d/linux-surface.list
-apt update -y
-apt install -y linux-image-surface linux-headers-surface libwacom-surface iptsd
-apt install -y linux-surface-secureboot-mok
+apt-get update
+apt-get install -y linux-image-surface linux-headers-surface libwacom-surface iptsd
+apt-get install -y linux-surface-secureboot-mok
 update-grub
 
 # Install packages
 echo "Installing packages:"
-apt install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
-apt remove -y firefox-esr gnome-terminal libreoffice*
-apt autoremove -y
+apt-get install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
+apt-get remove -y firefox-esr gnome-terminal libreoffice*
+apt-get autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.gtk.Gtk3theme.Adwaita-dark
 flatpak install -y flathub org.mozilla.firefox
@@ -65,7 +62,7 @@ sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/syste
 
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
-apt install -y systemd-resolved
+apt-get install -y systemd-resolved
 systemctl enable --now systemd-resolved
 
 echo "Complete!"
