@@ -5,16 +5,10 @@
 
 echo "Debian Server Setup - Self-Installed System - Kenneth Simmons, 2023"
 
-# Update the system
-echo "Updating the system:"
-apt update
-apt dist-upgrade -y
-apt autoremove -y
-
 # Install packages
 echo "Installing packages:"
-apt install -y linux-headers-amd64
-apt install -y ca-certificates curl exa gnupg htop neofetch snapd sudo ufw vim wget zfsutils-linux
+apt-get update
+apt-get install -y ca-certificates curl exa gnupg htop neofetch snapd vim wget
 
 # Install docker
 echo "Installing docker:"
@@ -22,8 +16,8 @@ install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-apt update
-apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt-get update
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 usermod -aG docker kenneth
 
 # Configure GRUB
@@ -33,7 +27,7 @@ update-grub
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
-echo "0 0 1 * * root /sbin/reboot" | tee -a /etc/crontab
+echo "0 4 1 * * root /sbin/reboot" | tee -a /etc/crontab
 
 # Create bash aliases
 echo "Creating bash aliases:"
@@ -43,5 +37,8 @@ echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" 
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
-echo "Reboot the server to finalize changes."
-echo "Remember to set up firewall and SSH keys!"
+echo "Next Steps:"
+echo "- Configure SSH to require keys for login and listen on a different port"
+echo "- Install 'linux-headers-amd64' and 'zfsutils-linux' for zfs support"
+echo "- Install 'ufw' for firewall"
+echo "- Reboot the server to finalize changes"
