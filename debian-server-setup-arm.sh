@@ -21,6 +21,12 @@ sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 echo "LANG=en_CA.UTF-8" | tee -a /etc/locale.conf
 locale-gen
 
+# Configure timezone
+echo "Configuring timezone:"
+unlink /etc/localtime
+ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+sed -i 's/Etc\/UTC/America\/New_York/g' /etc/timezone
+
 # Set hostname
 echo "Setting hostname:"
 read hostname
