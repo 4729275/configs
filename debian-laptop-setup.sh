@@ -11,13 +11,15 @@ sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
 
 # Update the system
 echo "Updating the system:"
-apt update -y && apt full-upgrade -y && apt autoremove -y
+apt-get update
+apt-get dist-upgrade -y
+apt-get autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
-apt remove -y firefox-esr gnome-terminal libreoffice*
-apt autoremove -y
+apt-get install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
+apt-get remove -y firefox-esr gnome-terminal libreoffice*
+apt-get autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.gtk.Gtk3theme.Adwaita-dark
 flatpak install -y flathub org.mozilla.firefox
@@ -28,13 +30,14 @@ usermod -aG libvirt kenneth
 
 # Install nvidia driver
 echo "Installing nVIDIA driver:"
-apt install nvidia-driver
+apt-get install nvidia-driver
 echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1"' > /etc/default/grub.d/nvidia-modeset.cfg
 update-grub
 cp /usr/share/doc/xserver-xorg-video-nvidia/examples/nvidia-sleep.sh /usr/bin/
 cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system-sleep/nvidia /usr/lib/systemd/system-sleep
 cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system/nvidia-* /etc/systemd/system/
-systemctl daemon-reload && systemctl enable nvidia-hibernate nvidia-resume nvidia-suspend
+systemctl daemon-reload
+systemctl enable nvidia-hibernate nvidia-resume nvidia-suspend
 echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1" > /etc/modprobe.d/nvidia-power-management.conf
 ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 
@@ -82,7 +85,7 @@ update-initramfs -u
 
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
-apt install -y systemd-resolved
+apt-get install -y systemd-resolved
 systemctl enable --now systemd-resolved
 
 echo "Complete!"
