@@ -9,6 +9,8 @@ echo "Debian Server Setup - Self-Installed System - Kenneth Simmons, 2023"
 echo "Installing packages:"
 apt-get update
 apt-get install -y ca-certificates curl exa gnupg htop neofetch snapd vim wget
+echo "export PATH=/snap/bin:$PATH" | tee -a /home/kenneth/.bashrc
+echo "export PATH=/snap/bin:$PATH" | tee -a /root/.bashrc
 
 # Install docker
 echo "Installing docker:"
