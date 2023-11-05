@@ -43,8 +43,6 @@ usermod -s /bin/bash kenneth
 # Install packages
 echo "Installing packages:"
 apt-get install -y ca-certificates curl exa gnupg htop neofetch snapd sudo vim wget
-echo "export PATH=/snap/bin:$PATH" | tee -a /home/kenneth/.bashrc
-echo "export PATH=/snap/bin:$PATH" | tee -a /root/.bashrc
 
 # Install docker
 echo "Installing docker:"
