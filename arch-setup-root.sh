@@ -7,7 +7,7 @@ echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2023"
 
 # Install packages
 echo "Installing packages:"
-pacman -S --noconfirm audacity audio-convert brasero dnsmasq exa gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-full qt6-wayland steam ufw virt-manager virtualbox vlc wireguard-tools yt-dlp
+pacman -S --noconfirm audacity audio-convert brasero dnsmasq eza gimp handbrake hplip htop inkscape kid3 kleopatra libdvdcss libreoffice-fresh libxcrypt-compat man-db musescore neofetch nextcloud-client ntfs-3g obs-studio psensor qemu-full qt6-wayland steam ufw virt-manager virtualbox vlc wireguard-tools yt-dlp
 systemctl enable --now libvirtd.socket
 usermod -aG libvirt kenneth
 usermod -aG vboxusers kenneth
@@ -31,7 +31,7 @@ echo "fi" | tee -a /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "alias pacup='paru && flatpak update'" | tee -a /home/kenneth/.bash_aliases
-echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
+echo "alias ls='eza -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
 
