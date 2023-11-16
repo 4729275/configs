@@ -18,7 +18,7 @@ update-grub
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
+apt-get install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-timesyncd systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
 apt-get remove -y firefox-esr gnome-terminal libreoffice*
 apt-get autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
