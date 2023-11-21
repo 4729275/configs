@@ -42,7 +42,7 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y ca-certificates curl exa gnupg htop neofetch snapd sudo vim wget
+apt-get install -y ca-certificates curl exa gnupg htop neofetch snapd sudo systemd-timesyncd vim wget
 
 # Install docker
 echo "Installing docker:"
