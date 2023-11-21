@@ -16,7 +16,7 @@ rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S amdgpu-pro-oglp davinci-resolve google-earth-pro gtkpod libtxc_dxtn opencl-amd teamviewer tilem tilp timeshift-bin ttf-ms-fonts ttf-roboto-fontconfig ventoy-bin
+paru -S amdgpu-pro-oglp davinci-resolve google-earth-pro gtkpod libtxc_dxtn opencl-amd teamviewer tilem tilp ttf-ms-fonts ttf-roboto-fontconfig ventoy-bin
 paru -R opencl-mesa
 sudo systemctl enable --now teamviewerd
 
