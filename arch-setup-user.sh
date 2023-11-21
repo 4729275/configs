@@ -22,6 +22,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
+flatpak install -y flathub org.gnome.World.PikaBackup
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.raspberrypi.rpi-imager
 flatpak install -y flathub us.zoom.Zoom
