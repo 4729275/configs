@@ -13,7 +13,7 @@ systemctl enable --now systemd-timesyncd
 usermod -aG libvirt kenneth
 usermod -aG vboxusers kenneth
 cd /home/kenneth/Downloads
-QT5_WEBKIT_PKGNAME=qt5-webkit-5.212.0alpha4-20-x86_64.pkg.tar.zst ### Update as new versions release ###
+QT5_WEBKIT_PKGNAME=qt5-webkit-5.212.0alpha4-21-x86_64.pkg.tar.zst ### Update as new versions release ###
 wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/$QT5_WEBKIT_PKGNAME
 pacman -U --noconfirm $QT5_WEBKIT_PKGNAME
 rm $QT5_WEBKIT_PKGNAME
