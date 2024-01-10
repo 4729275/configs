@@ -33,8 +33,8 @@ touch /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "alias pacup='paru && flatpak update'" | tee -a /home/kenneth/.bash_aliases
 echo "alias ls='eza -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
-echo "alias wgup='sudo wg-quick up kenneth-home'" | tee -a /home/kenneth/.bash_aliases
-echo "alias wgdn='sudo wg-quick down kenneth-home'" | tee -a /home/kenneth/.bash_aliases
+echo "alias wgup='sudo wg-quick up home'" | tee -a /home/kenneth/.bash_aliases
+echo "alias wgdn='sudo wg-quick down home'" | tee -a /home/kenneth/.bash_aliases
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
