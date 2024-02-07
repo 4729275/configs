@@ -22,6 +22,7 @@ apt-get remove -y firefox-esr gnome-terminal libreoffice*
 apt-get autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.gtk.Gtk3theme.Adwaita-dark
+flatpak install -y flathub com.usebottles.bottles
 flatpak install -y flathub org.mozilla.firefox
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub org.onlyoffice.desktopeditors
