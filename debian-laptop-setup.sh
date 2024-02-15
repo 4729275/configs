@@ -55,6 +55,7 @@ sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=2240x1400/g' /etc/default/grub
 update-grub
 
 # Configure Plymouth
+echo "Configuring Plymouth:"
 plymouth-set-default-theme -R bgrt
 
 # Create bash aliases
