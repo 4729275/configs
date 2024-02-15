@@ -18,7 +18,7 @@ update-grub
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop psensor scdaemon systemd-timesyncd systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
+apt-get install -y curl dbus-x11 exa flatpak fonts-roboto gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop plymouth plymouth-themes psensor scdaemon systemd-timesyncd systemd-zram-generator ttf-mscorefonts-installer ufw vim wireguard-tools xournalpp
 apt-get remove -y firefox-esr gnome-terminal libreoffice*
 apt-get autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -37,7 +37,13 @@ echo "compression-algorithm = zstd" | tee -a /etc/systemd/zram-generator.conf
 # Configure GRUB
 echo "Configuring GRUB:"
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
+sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1800x1200/g' /etc/default/grub
 update-grub
+
+# Configure Plymouth
+echo "Configuring Plymouth:"
+plymouth-set-default-theme -R bgrt
 
 # Create bash aliases
 echo "Creating bash aliases:"
