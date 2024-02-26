@@ -66,6 +66,14 @@ echo "Configuring systemd timeouts:"
 sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
 sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
 
+# Configure tlp
+apt-get install tlp tlp-rdw
+systemctl enable --now tlp
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
+systemctl restart tlp
+tlp start
+
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
 apt-get install -y systemd-resolved
