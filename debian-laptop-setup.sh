@@ -29,19 +29,6 @@ flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub us.zoom.Zoom
 usermod -aG libvirt kenneth
 
-# Install nvidia driver
-echo "Installing nVIDIA driver:"
-apt-get install nvidia-driver
-echo 'GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX nvidia-drm.modeset=1"' > /etc/default/grub.d/nvidia-modeset.cfg
-update-grub
-cp /usr/share/doc/xserver-xorg-video-nvidia/examples/nvidia-sleep.sh /usr/bin/
-cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system-sleep/nvidia /usr/lib/systemd/system-sleep
-cp /usr/share/doc/xserver-xorg-video-nvidia/examples/system/nvidia-* /etc/systemd/system/
-systemctl daemon-reload
-systemctl enable nvidia-hibernate nvidia-resume nvidia-suspend
-echo "options nvidia NVreg_PreserveVideoMemoryAllocations=1" > /etc/modprobe.d/nvidia-power-management.conf
-ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
-
 # Setup swap-on-zram
 echo "Setting up swap-on-zram:"
 echo "zram-size = min(ram, 8192)" | tee -a /etc/systemd/zram-generator.conf
