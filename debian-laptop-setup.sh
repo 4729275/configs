@@ -77,6 +77,14 @@ echo "options i915 enable_guc=3" | tee -a /etc/modprobe.d/i915.conf
 echo "options i915 enable_fbc=1" | tee -a /etc/modprobe.d/i915.conf
 update-initramfs -u
 
+# Configure tlp
+apt-get install tlp tlp-rdw
+systemctl enable --now tlp
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
+systemctl restart tlp
+tlp start
+
 # Installing systemd-resolved
 echo "Installing systemd-resolved:"
 apt-get install -y systemd-resolved
