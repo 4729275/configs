@@ -17,7 +17,7 @@ apt-get autoremove -y
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop kleopatra neofetch nextcloud-desktop plymouth plymouth-themes psensor scdaemon systemd-timesyncd systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
+apt-get install -y audacity curl dbus-x11 exa flatpak fonts-roboto gimp gnome-console gnome-software-plugin-flatpak htop inkscape kleopatra neofetch nextcloud-desktop plymouth plymouth-themes psensor scdaemon systemd-timesyncd systemd-zram-generator tilem timeshift ttf-mscorefonts-installer ufw vim virt-manager vlc wireguard-tools
 apt-get remove -y firefox-esr gnome-terminal libreoffice*
 apt-get autoremove -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
