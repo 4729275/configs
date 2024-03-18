@@ -69,5 +69,10 @@ echo "Enter hostname:"
 read hostname
 hostnamectl hostname $hostname
 
+# Enable fractional scaling
+echo "Enabling fractional scaling:"
+su kenneth
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
