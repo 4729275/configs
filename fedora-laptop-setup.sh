@@ -63,6 +63,10 @@ sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
 systemctl restart tlp
 tlp start
 
+# Enable systemd-timesyncd
+echo "Enabling systemd-timesyncd"
+systemctl eanble --now systemd-timesyncd
+
 # Set hostname
 echo "Setting hostname:"
 echo "Enter hostname:"
