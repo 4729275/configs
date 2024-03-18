@@ -3,7 +3,7 @@
 ### Fedora Laptop Setup Script ###
 # Kenneth Simmons, 2024
 
-echo "Fedora Laptop Setup - Kenneth Simmons, 2023"
+echo "Fedora Laptop Setup - Kenneth Simmons, 2024"
 
 # Configure dnf
 echo "Configuring dnf:"
