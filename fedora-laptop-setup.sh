@@ -23,7 +23,7 @@ dnf groupupdate core -y
 # Installing packages
 echo "Installing packages:"
 dnf install audacity cabextract eza google-roboto-fonts gimp gnome-console htop inkscape kleopatra neofetch nextcloud-client timeshift tlp tlp-rdw vim-enhanced virt-manager vlc wireguard-tools xorg-x11-font-utils xsensors -y
-rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm -y
+rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 flatpak install flathub org.onlyoffice.desktopeditors us.zoom.Zoom -y
 dnf remove power-profiles-daemon -y
 usermod -aG libvirt kenneth
@@ -62,6 +62,12 @@ systemctl mask systemd-rfkill.service systemd-rfkill.socket
 sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
 systemctl restart tlp
 tlp start
+
+# Set hostname
+echo "Setting hostname:"
+echo "Enter hostname:"
+read hostname
+hostnamectl hostname $hostname
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
