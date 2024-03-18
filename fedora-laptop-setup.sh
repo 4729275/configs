@@ -35,7 +35,7 @@ echo ". ~/.bash_aliases" >> /home/kenneth/.bashrc
 echo "fi" >> /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
-echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
+echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
 echo "alias dnfup='sudo dnf upgrade && flatpak update'" >> /home/kenneth/.bash_aliases
