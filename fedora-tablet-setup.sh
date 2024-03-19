@@ -16,8 +16,6 @@ echo "Installing linux-surface:"
 dnf config-manager --add-repo=https://pkg.surfacelinux.com/fedora/linux-surface.repo
 dnf install --allowerasing kernel-surface iptsd libwacom-surface -y
 dnf install surface-secureboot -y
-systemctl enable --now linux-surface-default-watchdog.path
-linux-surface-default-watchdog.sh
 
 # Update the system
 echo "Updating the system:"
