@@ -28,8 +28,8 @@ flatpak install flathub org.onlyoffice.desktopeditors com.google.EarthPro us.zoo
 dnf remove power-profiles-daemon -y
 usermod -aG libvirt kenneth
 
-# Configure bash aliases
-echo "Configuring bash aliases:"
+# Create bash aliases
+echo "Creating bash aliases:"
 echo "if [ -f ~/.bash_aliases ]; then" >> /home/kenneth/.bashrc
 echo ". ~/.bash_aliases" >> /home/kenneth/.bashrc
 echo "fi" >> /home/kenneth/.bashrc
