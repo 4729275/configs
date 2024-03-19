@@ -65,7 +65,7 @@ tlp start
 
 # Enable systemd-timesyncd
 echo "Enabling systemd-timesyncd"
-systemctl eanble --now systemd-timesyncd
+systemctl enable --now systemd-timesyncd
 
 # Set hostname
 echo "Setting hostname:"
@@ -76,11 +76,6 @@ hostnamectl hostname $hostname
 # Remove packages
 echo "Removing packages:"
 dnf remove gnome-terminal cheese -y
-
-# Enable fractional scaling
-echo "Enabling fractional scaling:"
-su kenneth
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
