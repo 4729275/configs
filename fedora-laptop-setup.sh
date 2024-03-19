@@ -22,7 +22,7 @@ dnf groupupdate core -y
 
 # Installing packages
 echo "Installing packages:"
-dnf install audacity cabextract eza google-roboto-fonts gimp gnome-console gnome-themes-extra gnome-tweaks htop inkscape kleopatra neofetch nextcloud-client snapshot timeshift tlp tlp-rdw vim-enhanced virt-manager vlc wireguard-tools xorg-x11-font-utils xsensors -y
+dnf install audacity cabextract eza google-roboto-fonts gimp gnome-console gnome-themes-extra gnome-tweaks htop inkscape kleopatra neofetch nextcloud-client snapshot tilem timeshift tlp tlp-rdw vim-enhanced virt-manager vlc wireguard-tools xorg-x11-font-utils xsensors -y
 rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 flatpak install flathub org.onlyoffice.desktopeditors com.google.EarthPro us.zoom.Zoom -y
 dnf remove power-profiles-daemon -y
