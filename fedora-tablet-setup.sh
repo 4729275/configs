@@ -37,7 +37,6 @@ dnf remove power-profiles-daemon -y
 
 # Create bash aliases
 echo "Creating bash aliases:"
-echo "Configuring bash aliases:"
 echo "if [ -f ~/.bash_aliases ]; then" >> /home/kenneth/.bashrc
 echo ". ~/.bash_aliases" >> /home/kenneth/.bashrc
 echo "fi" >> /home/kenneth/.bashrc
@@ -54,6 +53,7 @@ sed -i 's/#DefaultTimeoutStopSec=45s/DefaultTimeoutStopSec=15s/g' /etc/systemd/s
 sed -i 's/#DefaultDeviceTimeoutSec=45s/DefaultDeviceTimeoutSec=15s/g' /etc/systemd/system.conf
 
 # Configure tlp
+echo "Configuring tlp:"
 systemctl enable --now tlp
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
@@ -61,7 +61,7 @@ systemctl restart tlp
 tlp start
 
 # Enable systemd-timesyncd
-echo "Enabling systemd-timesyncd"
+echo "Enabling systemd-timesyncd:"
 systemctl enable --now systemd-timesyncd
 
 # Set hostname
