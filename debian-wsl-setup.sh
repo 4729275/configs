@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Debian WSL Setup Script ###
-# Kenneth Simmons, 2023
+# Kenneth Simmons, 2024
 
-echo "Debian WSL Setup - Kenneth Simmons, 2023"
+echo "Debian WSL Setup - Kenneth Simmons, 2024"
 
 # Update the system
 echo "Updating the system:"
@@ -28,8 +28,8 @@ apt-get install -y vim neofetch exa htop wget
 # Create bash aliases
 echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
-echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
-echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
+echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
+echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
