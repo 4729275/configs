@@ -54,7 +54,7 @@ touch /etc/yt-dlp.conf
 echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
 echo "-x" >> /etc/yt-dlp.conf
 echo "--audio-format mp3" >> /etc/yt-dlp.conf
-echo "-o \"%(title)s.%(ext)s\"" | tee -a /etc/yt-dlp.conf
+echo "-o \"%(title)s.%(ext)s\"" >> /etc/yt-dlp.conf
 
 echo "Root portion complete!"
 echo "Run the user portion to continue."
