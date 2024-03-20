@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Arch Linux Setup Script - Root Portion ###
-# Kenneth Simmons, 2023
+# Kenneth Simmons, 2024
 
-echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2023"
+echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2024"
 
 # Install packages
 echo "Installing packages:"
