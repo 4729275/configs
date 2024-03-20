@@ -11,14 +11,6 @@ echo "defaultyes=True" >> /etc/dnf/dnf.conf
 echo "keepcache=True" >> /etc/dnf/dnf.conf
 echo "max_parallel_downloads=5" >> /etc/dnf/dnf.conf
 
-# Install linux-surface
-echo "Installing linux-surface:"
-dnf config-manager --add-repo=https://pkg.surfacelinux.com/fedora/linux-surface.repo
-dnf install --allowerasing kernel-surface iptsd libwacom-surface kernel-surface-default-watchdog -y
-dnf install surface-secureboot -y
-systemctl enable --now linux-surface-default-watchdog.path
-linux-surface-default-watchdog.py
-
 # Update the system
 echo "Updating the system:"
 dnf upgrade -y
@@ -27,6 +19,14 @@ dnf upgrade -y
 echo "Enabling RPM Fusion:"
 dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf groupupdate core -y
+
+# Install linux-surface
+echo "Installing linux-surface:"
+dnf config-manager --add-repo=https://pkg.surfacelinux.com/fedora/linux-surface.repo
+dnf install --allowerasing kernel-surface iptsd libwacom-surface kernel-surface-default-watchdog -y
+dnf install surface-secureboot -y
+systemctl enable --now linux-surface-default-watchdog.path
+linux-surface-default-watchdog.py
 
 # Installing packages
 echo "Installing packages:"
