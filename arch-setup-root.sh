@@ -26,15 +26,15 @@ sed -i '10d' /home/kenneth/.bashrc
 
 # Create bash aliases
 echo "Creating bash aliases:"
-echo "if [ -f ~/.bash_aliases ]; then" | tee -a /home/kenneth/.bashrc
-echo ". ~/.bash_aliases" | tee -a /home/kenneth/.bashrc
-echo "fi" | tee -a /home/kenneth/.bashrc
+echo "if [ -f ~/.bash_aliases ]; then" >> /home/kenneth/.bashrc
+echo ". ~/.bash_aliases" >> /home/kenneth/.bashrc
+echo "fi" >> /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
-echo "alias pacup='paru && flatpak update'" | tee -a /home/kenneth/.bash_aliases
-echo "alias ls='eza -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
-echo "alias wgup='sudo wg-quick up home'" | tee -a /home/kenneth/.bash_aliases
-echo "alias wgdn='sudo wg-quick down home'" | tee -a /home/kenneth/.bash_aliases
+echo "alias pacup='paru && flatpak update'" >> /home/kenneth/.bash_aliases
+echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
+echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
+echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
@@ -51,9 +51,9 @@ ufw enable
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
 touch /etc/yt-dlp.conf
-echo "-P /home/kenneth/Downloads/" | tee -a /etc/yt-dlp.conf
-echo "-x" | tee -a /etc/yt-dlp.conf
-echo "--audio-format mp3" | tee -a /etc/yt-dlp.conf
+echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
+echo "-x" >> /etc/yt-dlp.conf
+echo "--audio-format mp3" >> /etc/yt-dlp.conf
 echo "-o \"%(title)s.%(ext)s\"" | tee -a /etc/yt-dlp.conf
 
 echo "Root portion complete!"
