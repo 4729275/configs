@@ -33,7 +33,7 @@ timedatectl set-timezone America/New_York
 echo "Setting hostname:"
 echo "Enter hostname:"
 read hostname
-hostnamectl set-hostname $hostname
+hostnamectl hostname $hostname
 
 # Create user account
 echo "Creating user account:"
