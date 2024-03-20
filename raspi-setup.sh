@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Raspbetty Pi Setup Script ###
-# Kenneth Simmons, 2023
+# Kenneth Simmons, 2024
 
-echo "Raspberry Pi Setup - Kenneth Simmons, 2023"
+echo "Raspberry Pi Setup - Kenneth Simmons, 2024"
 
 # Update the system
 echo "Updating the system:"
@@ -18,7 +18,7 @@ sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/# en_GB ISO-8859-1/en_GB ISO-8859-1/g' /etc/locale.gen
 sed -i 's/# en_GB.ISO-8859-15 ISO-8859-15/en_GB.ISO-8859-15 ISO-8859-15/g' /etc/locale.gen
 touch /etc/locale.conf
-echo "LANG=en_CA.UTF-8" | tee -a /etc/locale.conf
+echo "LANG=en_CA.UTF-8" >> /etc/locale.conf
 locale-gen
 
 # Install packages
@@ -32,13 +32,13 @@ systemctl enable --now unattended-upgrades
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
-echo "0 3 1 * * root /sbin/reboot" | tee -a /etc/crontab
+echo "0 3 1 * * root /sbin/reboot" >> /etc/crontab
 
 # Create bash aliases
 echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
-echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
-echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
+echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
+echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
