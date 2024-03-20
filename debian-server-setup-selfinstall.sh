@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Debian Server Setup Script for a Self-Installed System ###
-# Kenneth Simmons, 2023
+# Kenneth Simmons, 2024
 
-echo "Debian Server Setup - Self-Installed System - Kenneth Simmons, 2023"
+echo "Debian Server Setup - Self-Installed System - Kenneth Simmons, 2024"
 
 # Install packages
 echo "Installing packages:"
@@ -27,13 +27,13 @@ update-grub
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
-echo "0 4 1 * * root /sbin/reboot" | tee -a /etc/crontab
+echo "0 4 1 * * root /sbin/reboot" >> /etc/crontab
 
 # Create bash aliases
 echo "Creating bash aliases:"
 touch /home/kenneth/.bash_aliases
-echo "alias ls='exa -al --group-directories-first'" | tee -a /home/kenneth/.bash_aliases
-echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" | tee -a /home/kenneth/.bash_aliases
+echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
+echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 echo "Complete!"
