@@ -21,7 +21,7 @@ dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(r
 dnf groupupdate core -y
 
 # Install multimedia codecs
-echo "Installing multimedia concecs:"
+echo "Installing multimedia codecs:"
 dnf group install Multimedia --allowerasing
 
 # Installing packages
