@@ -15,10 +15,14 @@ echo "max_parallel_downloads=5" >> /etc/dnf/dnf.conf
 echo "Updating the system:"
 dnf upgrade -y
 
-# Enable RPM Fusion:
+# Enable RPM Fusion
 echo "Enabling RPM Fusion:"
 dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf groupupdate core -y
+
+# Install multimedia codecs
+echo "Installing multimedia codecs:"
+dnf group install Multimedia --allowerasing
 
 # Install linux-surface
 echo "Installing linux-surface:"
