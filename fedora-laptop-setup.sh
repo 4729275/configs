@@ -15,10 +15,14 @@ echo "max_parallel_downloads=5" >> /etc/dnf/dnf.conf
 echo "Updating the system:"
 dnf upgrade -y
 
-# Enable RPM Fusion:
+# Enable RPM Fusion
 echo "Enabling RPM Fusion:"
 dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf groupupdate core -y
+
+# Install multimedia codecs
+echo "Installing multimedia concecs:"
+dnf group install Multimedia --allowerasing
 
 # Installing packages
 echo "Installing packages:"
@@ -57,6 +61,7 @@ echo "options i915 enable_fbc=1" >> /etc/modprobe.d/i915.conf
 dracut --force
 
 # Configure tlp
+echo "Configuring tlp:"
 systemctl enable --now tlp
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
@@ -64,7 +69,7 @@ systemctl restart tlp
 tlp start
 
 # Enable systemd-timesyncd
-echo "Enabling systemd-timesyncd"
+echo "Enabling systemd-timesyncd:"
 systemctl enable --now systemd-timesyncd
 
 # Set hostname
