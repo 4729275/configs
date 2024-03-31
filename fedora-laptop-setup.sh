@@ -22,7 +22,7 @@ dnf groupupdate core -y
 
 # Install multimedia codecs
 echo "Installing multimedia codecs:"
-dnf group install Multimedia --allowerasing
+dnf group install Multimedia --allowerasing -y
 
 # Installing packages
 echo "Installing packages:"
