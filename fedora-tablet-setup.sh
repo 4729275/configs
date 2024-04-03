@@ -34,7 +34,7 @@ linux-surface-default-watchdog.py
 
 # Installing packages
 echo "Installing packages:"
-dnf install cabextract eza gnome-console gnome-themes-extra gnome-tweaks google-roboto-fonts htop kleopatra neofetch nextcloud-client snapshot timeshift tlp tlp-rdw vim-enhanced vlc wireguard-tools xorg-x11-font-utils xournalpp xsensors -y
+dnf install cabextract eza gnome-console gnome-themes-extra gnome-tweaks google-roboto-fonts htop kleopatra neofetch nextcloud-client snapshot texlive-latex texstudio timeshift tlp tlp-rdw vim-enhanced vlc wireguard-tools xorg-x11-font-utils xournalpp xsensors -y
 rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 flatpak install flathub org.kde.krita org.onlyoffice.desktopeditors us.zoom.Zoom -y
 dnf remove power-profiles-daemon -y
@@ -49,7 +49,7 @@ chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
-echo "alias dnfup='sudo dnf upgrade && flatpak update'" >> /home/kenneth/.bash_aliases
+echo "alias dnfup='sudo dnf upgrade && flatpak update && linux-surface-default-watchdog.py'" >> /home/kenneth/.bash_aliases
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
