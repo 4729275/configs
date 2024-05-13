@@ -22,7 +22,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub org.gabmus.gfeeds com.github.tchx84.Flatseal org.gnome.World.PikaBackup org.onlyoffice.desktopeditors org.raspberrypi.rpi-imager us.zoom.Zoom
+flatpak install -y flathub com.github.tchx84.Flatseal io.gitlab.news_flash.NewsFlash org.gnome.World.PikaBackup org.onlyoffice.desktopeditors org.raspberrypi.rpi-imager us.zoom.Zoom
 
 echo "User portion complete!"
 echo "Reboot the system to finalize the changes."
