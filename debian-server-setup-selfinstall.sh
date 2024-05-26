@@ -8,7 +8,7 @@ echo "Debian Server Setup - Self-Installed System - Kenneth Simmons, 2024"
 # Install packages
 echo "Installing packages:"
 apt-get update
-apt-get install -y ca-certificates curl exa gnupg htop neofetch snapd systemd-timesyncd vim wget
+apt-get install -y ca-certificates curl exa gnupg htop snapd systemd-timesyncd vim wget
 
 # Install docker
 echo "Installing docker:"
