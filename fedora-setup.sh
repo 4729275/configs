@@ -26,7 +26,7 @@ dnf group install Multimedia --allowerasing -y
 
 # Installing packages
 echo "Installing packages:"
-dnf install audacity cabextract eza gimp gnome-console gnome-themes-extra gnome-tweaks google-roboto-fonts htop inkscape kleopatra neofetch nextcloud-client snapshot texlive-latex texstudio tilem timeshift tlp tlp-rdw vim-enhanced virt-manager vlc wireguard-tools xorg-x11-font-utils xsensors -y
+dnf install audacity cabextract eza gimp gnome-console gnome-themes-extra gnome-tweaks google-roboto-fonts htop inkscape kleopatra nextcloud-client snapshot texlive-latex texstudio tilem timeshift tlp tlp-rdw vim-enhanced virt-manager vlc wireguard-tools xorg-x11-font-utils xsensors -y
 rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 flatpak install flathub org.onlyoffice.desktopeditors com.google.EarthPro us.zoom.Zoom -y
 dnf remove power-profiles-daemon -y
