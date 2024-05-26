@@ -23,7 +23,7 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y vim neofetch exa htop wget
+apt-get install -y vim exa htop wget
 
 # Create bash aliases
 echo "Creating bash aliases:"
