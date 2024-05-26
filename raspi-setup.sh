@@ -23,7 +23,7 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y exa neofetch vim
+apt-get install -y exa vim
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
