@@ -12,12 +12,18 @@ systemctl enable --now libvirtd.socket
 systemctl enable --now systemd-timesyncd
 usermod -aG libvirt kenneth
 usermod -aG vboxusers kenneth
-cd /home/kenneth/Downloads
-QT5_WEBKIT_PKGNAME=qt5-webkit-5.212.0alpha4-22-x86_64.pkg.tar.zst ### Update as new versions release ###
-wget https://sourceforge.net/projects/fabiololix-os-archive/files/Packages/$QT5_WEBKIT_PKGNAME
-pacman -U --noconfirm $QT5_WEBKIT_PKGNAME
-rm $QT5_WEBKIT_PKGNAME
-cd -
+
+# Configure reflector
+echo "Configuring reflector:"
+rm /etc/xdg/reflector/reflector.conf
+touch /etc/xdg/reflector/reflector.conf
+echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
+echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
+echo "--country 'United States'" >> /etc/xdg/reflector/reflector.conf
+echo "--latest 5" >> /etc/xdg/reflector/reflector.conf
+echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
+systemctl enable --now reflector
+systemctl enable --now reflector.timer
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
