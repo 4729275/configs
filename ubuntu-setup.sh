@@ -15,7 +15,7 @@ snap refresh
 # Install packages
 echo "Installing packages:"
 add-apt-repository ppa:slimbook/slimbook -y
-apt-get install audacity eza fonts-roboto gimp gnome-console gnome-snapshot gnome-tweaks htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox slimbookface texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
+apt-get install audacity eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox slimbookface texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
 wget http://http.us.debian.org/debian/pool/main/libf/libfprint/libfprint-2-2_1.94.8-1_amd64.deb
 apt-get install ./libfprint-2-2_1.94.8-1_amd64.deb -y
 rm libfprint-2-2_1.94.8-1_amd64.deb
