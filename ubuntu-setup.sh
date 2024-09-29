@@ -54,8 +54,8 @@ tlp start
 
 # Configure howdy
 echo "Configuring howdy:"
-sed -i 's/device_path = none/device_path = \/dev\/video2/g' /usr/lib64/security/howdy/config.ini
-sed -i 's/dark_threshold = 60/dark_threshold = 85/g' /usr/lib64/security/howdy/config.ini
+sed -i 's/device_path = none/device_path = \/dev\/video2/g' /etc/howdy/config.ini
+sed -i 's/dark_threshold = 60/dark_threshold = 85/g' /etc/howdy/config.ini
 
 # Remove packages:
 echo "Removing packages:"
