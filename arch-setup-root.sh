@@ -9,7 +9,6 @@ echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2024"
 echo "Installing packages:"
 pacman -S --noconfirm audacity audio-convert brasero dnsmasq eza firefox gimp gvfs-dnssd handbrake hplip htop inkscape kid3 kleopatra libaacs libdvdcss libreoffice-fresh libxcrypt-compat musescore nextcloud-client obs-studio psensor pulseaudio-alsa qemu-full qt6-wayland reflector rhythmbox seahorse steam texlive-latex texstudio tigervnc timeshift transmission-gtk ttf-roboto ufw v4l2loopback-dkms virt-manager virtualbox vlc wireguard-tools yt-dlp
 systemctl enable --now libvirtd.socket
-systemctl enable --now systemd-timesyncd
 usermod -aG libvirt kenneth
 usermod -aG vboxusers kenneth
 
