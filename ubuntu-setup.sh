@@ -41,6 +41,13 @@ sed -i 's/quick_boot="1"/quick_boot="0"/g' /etc/grub.d/30_os-prober
 sed -i 's/set timeout=10/#set timeout=10/g' /etc/grub.d/30_os-prober
 update-grub
 
+# Configure firewall
+echo "Configuring firewall:"
+systemctl enable --now ufw
+ufw default allow outgoing
+ufw default deny incoming
+ufw enable
+
 # Configure tlp
 echo "Configuring tlp:"
 systemctl enable --now tlp
