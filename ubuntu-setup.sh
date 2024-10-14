@@ -16,9 +16,6 @@ snap refresh
 echo "Installing packages:"
 add-apt-repository ppa:slimbook/slimbook -y
 apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon slimbookface texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
-wget http://http.us.debian.org/debian/pool/main/libf/libfprint/libfprint-2-2_1.94.8-1_amd64.deb
-apt-get install ./libfprint-2-2_1.94.8-1_amd64.deb -y
-rm libfprint-2-2_1.94.8-1_amd64.deb
 snap install zoom-client
 
 # Create bash aliases
@@ -60,7 +57,7 @@ sed -i 's/dark_threshold = 60/dark_threshold = 85/g' /etc/howdy/config.ini
 # Remove packages:
 echo "Removing packages:"
 apt-get remove gnome-terminal -y
-apt-get autoremove
+apt-get autoremove -y
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
