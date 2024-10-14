@@ -7,7 +7,7 @@ echo "Ubuntu Laptop Setup - Kenneth Simmons, 2024"
 
 # Update the system
 echo "Updating the system:"
-apt-get update -y
+apt-get update
 apt-get upgrade -y
 apt-get autoremove -y
 snap refresh
