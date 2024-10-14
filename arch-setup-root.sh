@@ -35,11 +35,11 @@ echo "if [ -f ~/.bash_aliases ]; then" >> /home/kenneth/.bashrc
 echo ". ~/.bash_aliases" >> /home/kenneth/.bashrc
 echo "fi" >> /home/kenneth/.bashrc
 touch /home/kenneth/.bash_aliases
-chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "alias pacup='paru && flatpak update'" >> /home/kenneth/.bash_aliases
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
+chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
