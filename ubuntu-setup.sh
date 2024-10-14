@@ -12,6 +12,12 @@ apt-get upgrade -y
 apt-get autoremove -y
 snap refresh
 
+# Configure locales
+echo "Configuring locales:"
+sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
+locale-gen
+sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' >> /etc/locale.conf
+
 # Install packages
 echo "Installing packages:"
 add-apt-repository ppa:slimbook/slimbook -y
@@ -26,12 +32,6 @@ echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo snap refresh'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
-
-# Configure locales
-echo "Configuring locales:"
-sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
-locale-gen
-sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' >> /etc/locale.conf
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
