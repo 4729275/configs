@@ -21,7 +21,7 @@ sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' >> /etc/locale.conf
 # Install packages
 echo "Installing packages:"
 add-apt-repository ppa:slimbook/slimbook -y
-apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon slimbookface texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
+apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon slimbookface texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
 snap install zoom-client
 
 # Create bash aliases
