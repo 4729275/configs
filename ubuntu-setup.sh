@@ -37,7 +37,11 @@ chown kenneth:kenneth /home/kenneth/.bash_aliases
 echo "Configuring swap-on-zram:"
 swapoff /swap.img
 rm /swap.img
+cp /etc/fstab /etc/fstab.bak
 sed -i '$d' /etc/fstab
+if [ -f /etc/systemd/zram-generator.conf ]; then
+mv /etc/systemd/zram-generator.conf /etc/systemd/zram-generator.conf.bak
+fi
 touch /etc/systemd/zram-generator.conf
 echo "[zram0]" >> /etc/systemd/zram-generator.conf
 echo "zram-size = min(ram, 8192)" >> /etc/systemd/zram-generator.conf
