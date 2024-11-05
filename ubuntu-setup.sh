@@ -21,7 +21,7 @@ sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' >> /etc/locale.conf
 # Install packages
 echo "Installing packages:"
 add-apt-repository ppa:slimbook/slimbook -y
-apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon slimbookface texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
+apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon slimbookface systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw ttf-mscorefonts-installer vim virt-manager vlc wireguard xournalpp -y
 snap install zoom-client
 
 # Create bash aliases
@@ -32,6 +32,17 @@ echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo snap refresh'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
+
+# Configure swap-on-zram
+echo "Configuring swap-on-zram:"
+swapoff /swap.img
+rm /swap.img
+sed -i '12d' /etc/fstab
+touch /etc/systemd/zram-generator.conf
+echo "[zram0]" >> /etc/systemd/zram-generator.conf
+echo "zram-size = min(ram, 8192)" >> /etc/systemd/zram-generator.conf
+echo "compression-algorithm = zstd" >> /etc/systemd/zram-generator.conf
+
 
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
