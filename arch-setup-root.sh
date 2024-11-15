@@ -7,7 +7,7 @@ echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2024"
 
 # Install packages
 echo "Installing packages:"
-pacman -S --noconfirm audacity audio-convert avahi brasero dnsmasq eza firefox gimp gvfs-dnssd handbrake hplip htop inetutils inkscape kid3 kleopatra libaacs libdvdcss libreoffice-fresh libxcrypt-compat musescore nextcloud-client obs-studio psensor pulseaudio-alsa qemu-full qt6-wayland reflector rhythmbox seahorse steam texlive-latex texstudio tigervnc timeshift transmission-gtk ttf-roboto ufw v4l2loopback-dkms virt-manager virtualbox vlc wireguard-tools yt-dlp zint-qt
+pacman -S --noconfirm audacity audio-convert brasero dnsmasq eza firefox gimp gvfs-dnssd handbrake hplip htop inetutils inkscape jre-openjdk kid3 kleopatra libaacs libdvdcss libreoffice-fresh musescore nextcloud-client obs-studio pipewire-alsa psensor qemu-full qt6-wayland reflector rhythmbox steam texlive-latex texstudio timeshift transmission-gtk ttf-roboto ufw v4l2loopback-dkms virt-manager virtualbox vlc wireguard-tools yt-dlp zint-qt
 systemctl enable --now avahi-daemon.service
 systemctl enable --now libvirtd.socket
 usermod -aG libvirt kenneth
