@@ -16,8 +16,7 @@ rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S amdgpu-pro-oglp davinci-resolve google-earth-pro gtkpod libhashab-git libtxc_dxtn opencl-amd teamviewer tilem tilp ttf-ms-fonts ventoy-bin
-paru -R opencl-mesa
+paru -S davinci-resolve google-earth-pro gtkpod libhashab-git teamviewer tilem tilp ventoy-bin
 sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
