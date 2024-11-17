@@ -35,8 +35,7 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-add-apt-repository ppa:slimbook/slimbook -y
-apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon slimbookface systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw vim virt-manager vlc wireguard xournalpp zint-qt -y
+apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw vim virt-manager vlc wireguard xournalpp zint-qt -y
 apt-get remove fonts-noto* -y
 apt-get install fonts-noto-cjk fonts-noto-color-emoji -y
 snap install zoom-client
@@ -93,11 +92,6 @@ systemctl mask systemd-rfkill.service systemd-rfkill.socket
 sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
 systemctl restart tlp
 tlp start
-
-# Configure howdy
-echo "Configuring howdy:"
-sed -i 's/device_path = none/device_path = \/dev\/video2/g' /etc/howdy/config.ini
-sed -i 's/dark_threshold = 60/dark_threshold = 85/g' /etc/howdy/config.ini
 
 # Remove packages:
 echo "Removing packages:"
