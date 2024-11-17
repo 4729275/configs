@@ -23,5 +23,10 @@ sudo systemctl enable --now teamviewerd
 echo "Installing Flatpak packages:"
 flatpak install -y flathub com.github.tchx84.Flatseal io.gitlab.news_flash.NewsFlash org.gnome.World.PikaBackup org.onlyoffice.desktopeditors org.raspberrypi.rpi-imager us.zoom.Zoom
 
+# Installing correct Vulkan drivers
+echo "Installing Vulkan drivers - manual confirmation required:"
+sudo pacman -S vulkan-radeon
+sudo pacman -Rns amdvlk
+ 
 echo "User portion complete!"
 echo "Reboot the system to finalize the changes."
