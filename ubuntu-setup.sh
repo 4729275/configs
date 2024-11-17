@@ -35,7 +35,8 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-apt-get install audacity curl eza fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake htop inkscape kleopatra libreoffice nextcloud-desktop psensor rhythmbox scdaemon systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw vim virt-manager vlc wireguard xournalpp zint-qt -y
+apt-add-repository ppa:ubuntuhandbook1/howdy
+apt-get install audacity curl eza ffmpeg fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake howdy htop inkscape kleopatra libinireader0 libpam-python libreoffice nextcloud-desktop psensor python3-dlib rhythmbox scdaemon systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw v4l-utils vim virt-manager vlc wireguard xournalpp zint-qt -y
 apt-get remove fonts-noto* -y
 apt-get install fonts-noto-cjk fonts-noto-color-emoji -y
 snap install zoom-client
