@@ -94,6 +94,11 @@ sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
 systemctl restart tlp
 tlp start
 
+# Configure howdy
+echo "Configuring howdy:"
+sed -i 's/device_path = none/device_path = \/dev\/video2/g' /etc/howdy/config.ini
+sed -i 's/dark_theshold = 60/dark_threshold = 80/g' /etc/howdy/config.ini
+
 # Remove packages:
 echo "Removing packages:"
 apt-get remove gnome-terminal -y
