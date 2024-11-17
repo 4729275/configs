@@ -15,8 +15,8 @@ apt-get autoremove -y
 echo "Configuring locales:"
 sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
-locale-gen
 echo "LANG=en_CA.UTF-8" >> /etc/locale.conf
+locale-gen
 
 # Install packages
 echo "Installing packages:"
