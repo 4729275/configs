@@ -14,22 +14,7 @@ snap refresh
 
 # Configure locales
 echo "Configuring locales:"
-sed -i 's/en_AG.UTF-8 UTF-8/# en_AG.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_AU.UTF-8 UTF-8/# en_AU.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_BW.UTF-8 UTF-8/# en_BW.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_DK.UTF-8 UTF-8/# en_DK.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_GB.UTF-8 UTF-8/# en_GB.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_HK.UTF-8 UTF-8/# en_HK.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_IE.UTF-8 UTF-8/# en_IE.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_IL.UTF-8 UTF-8/# en_IL.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_IN.UTF-8 UTF-8/# en_IN.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_NG.UTF-8 UTF-8/# en_NG.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_NZ.UTF-8 UTF-8/# en_NZ.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_PH.UTF-8 UTF-8/# en_PH.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_SG.UTF-8 UTF-8/# en_SG.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_ZA.UTF-8 UTF-8/# en_ZA.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_ZM.UTF-8 UTF-8/# en_ZM.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/en_ZW.UTF-8 UTF-8/# en_ZW.UTF-8 UTF-8/g' /etc/locale.gen
+sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g'
 sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' /etc/locale.conf
 locale-gen
 
