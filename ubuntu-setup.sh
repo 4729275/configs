@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Ubuntu Laptop Setup Script ###
-# Kenneth Simmons, 2024
+# Kenneth Simmons, 2025
 
-echo "Ubuntu Laptop Setup - Kenneth Simmons, 2024"
+echo "Ubuntu Laptop Setup - Kenneth Simmons, 2025"
 
 # Update the system
 echo "Updating the system:"
@@ -14,7 +14,7 @@ snap refresh
 
 # Configure locales
 echo "Configuring locales:"
-sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g'
+sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
 sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' /etc/locale.conf
 locale-gen
 
@@ -40,7 +40,7 @@ echo "Configuring swap-on-zram:"
 swapoff /swap.img
 rm /swap.img
 cp /etc/fstab /etc/fstab.bak
-sed -i '$d' /etc/fstab
+sed -i 's/\/swap.img/\/#swap.img/g' /etc/fstab
 if [ -f /etc/systemd/zram-generator.conf ]; then
 mv /etc/systemd/zram-generator.conf /etc/systemd/zram-generator.conf.bak
 fi
@@ -59,7 +59,6 @@ sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/syste
 echo "Configuring grub:"
 echo "GRUB_HIDDEN_TIMEOUT=0" >> /etc/default/grub
 echo "GRUB_RECORDFAIL_TIMEOUT=0" >> /etc/default/grub
-sed -i 's/OS_PROBER=true/OS_PROBER=false/g' /etc/default/grub
 sed -i 's/quick_boot="1"/quick_boot="0"/g' /etc/grub.d/30_os-prober
 sed -i 's/set timeout=10/#set timeout=10/g' /etc/grub.d/30_os-prober
 update-grub
