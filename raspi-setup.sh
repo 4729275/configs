@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Raspbetty Pi Setup Script ###
-# Kenneth Simmons, 2024
+# Kenneth Simmons, 2025
 
-echo "Raspberry Pi Setup - Kenneth Simmons, 2024"
+echo "Raspberry Pi Setup - Kenneth Simmons, 2025"
 
 # Update the system
 echo "Updating the system:"
