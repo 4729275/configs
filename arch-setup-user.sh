@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Arch Linux Setup Script - User Portion ###
-# Kenneth Simmons, 2024
+# Kenneth Simmons, 2025
 
-echo "Arch Linux Setup - User Portion - Kenneth Simmons, 2024"
+echo "Arch Linux Setup - User Portion - Kenneth Simmons, 2025"
 
 # Install AUR helper
 cd /home/kenneth
