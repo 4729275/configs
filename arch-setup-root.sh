@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Arch Linux Setup Script - Root Portion ###
-# Kenneth Simmons, 2024
+# Kenneth Simmons, 2025
 
-echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2024"
+echo "Arch Linux Setup - Root Portion - Kenneth Simmons, 2025"
 
 # Install packages
 echo "Installing packages:"
@@ -21,15 +21,17 @@ touch /etc/xdg/reflector/reflector.conf
 echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
 echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
 echo "--country 'United States'" >> /etc/xdg/reflector/reflector.conf
-echo "--latest 5" >> /etc/xdg/reflector/reflector.conf
+echo "--latest 10" >> /etc/xdg/reflector/reflector.conf
 echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
 systemctl enable --now reflector
 systemctl enable --now reflector.timer
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
+rm /home/kenneth/.bashrc
+touch /home/kenneth/.bashrc
+echo "[[ $- != *i* ]] && return" >> /home/kenneth/.bashrc
 echo "PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /home/kenneth/.bashrc
-sed -i '10d' /home/kenneth/.bashrc
 
 # Create bash aliases
 echo "Creating bash aliases:"
@@ -41,6 +43,7 @@ echo "alias pacup='paru && flatpak update'" >> /home/kenneth/.bash_aliases
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
+chown kenneth:kenneth /home/kenneth/.bashrc
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 # Configure systemd timeouts
