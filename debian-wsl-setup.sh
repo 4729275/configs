@@ -1,9 +1,9 @@
 #! /bin/bash
 
 ### Debian WSL Setup Script ###
-# Kenneth Simmons, 2024
+# Kenneth Simmons, 2025
 
-echo "Debian WSL Setup - Kenneth Simmons, 2024"
+echo "Debian WSL Setup - Kenneth Simmons, 2025"
 
 # Update the system
 echo "Updating the system:"
