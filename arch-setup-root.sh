@@ -20,7 +20,7 @@ rm /etc/xdg/reflector/reflector.conf
 touch /etc/xdg/reflector/reflector.conf
 echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
 echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
-echo "--country 'United States'" >> /etc/xdg/reflector/reflector.conf
+echo "--country US" >> /etc/xdg/reflector/reflector.conf
 echo "--latest 200" >> /etc/xdg/reflector/reflector.conf
 echo "--number 20" >> /etc/xdg/reflector/reflector.conf
 echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
