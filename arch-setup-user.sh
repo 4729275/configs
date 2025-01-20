@@ -21,7 +21,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal io.gitlab.news_flash.NewsFlash org.gnome.World.PikaBackup org.onlyoffice.desktopeditors org.raspberrypi.rpi-imager us.zoom.Zoom
+flatpak install -y flathub com.github.tchx84.Flatseal io.gitlab.news_flash.NewsFlash org.audacityteam.Audacity org.gnome.World.PikaBackup org.onlyoffice.desktopeditors org.raspberrypi.rpi-imager us.zoom.Zoom
 
 # Installing correct Vulkan drivers
 echo "Installing Vulkan drivers - manual confirmation required:"
