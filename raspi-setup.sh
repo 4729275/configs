@@ -14,7 +14,9 @@ apt-get autoremove -y
 # Configure locales
 echo "Configuring locales:"
 sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
-touch /etc/locale.conf
+if [ -f /etc/locale.conf ]; then
+mv /etc/locale.conf /etc/locale.conf.bak
+fi
 echo "LANG=en_CA.UTF-8" >> /etc/locale.conf
 locale-gen
 
@@ -29,11 +31,17 @@ systemctl enable --now unattended-upgrades
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
+if [ ! -f /etc/crontab.bak ]
+cp /etc/crontab /etc/crontab.bak
 echo "0 3 1 * * root /sbin/reboot" >> /etc/crontab
+fi
 
 # Create bash aliases
 echo "Creating bash aliases:"
-touch /home/kenneth/.bash_aliases
+if [ -f /home/kenneth/.bash_aliases ]; then
+mv /home/kenneth/.bash_aliases /home/kenneth/.bash_aliases.bak
+chown kenneth:kenneth /home/kenneth/.bash_aliases.bak
+fi
 echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
