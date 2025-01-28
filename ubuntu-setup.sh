@@ -12,12 +12,6 @@ apt-get upgrade -y
 apt-get autoremove -y
 snap refresh
 
-# Configure locales
-echo "Configuring locales:"
-sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
-sed -i 's/LANG=en_US.UTF-8/LANG=en_CA.UTF-8/g' /etc/locale.conf
-locale-gen
-
 # Install packages
 echo "Installing packages:"
 apt-add-repository ppa:ubuntuhandbook1/howdy
@@ -28,7 +22,10 @@ snap install converternow zoom-client
 
 # Create bash aliases
 echo "Creating bash aliases:"
-touch /home/kenneth/.bash_aliases
+if [ -f /home/kenneth/.bash_aliases ]; then
+mv /home/kenneth/.bash_aliases /home/kenneth/.bash_aliases.bak
+chown kenneth:kenneth /home/kenneth/.bash_aliases.bak
+fi
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
@@ -37,14 +34,15 @@ chown kenneth:kenneth /home/kenneth/.bash_aliases
 
 # Configure swap-on-zram
 echo "Configuring swap-on-zram:"
+if [ -f /swap.img ]; then
 swapoff /swap.img
 rm /swap.img
 cp /etc/fstab /etc/fstab.bak
-sed -i 's/\/swap.img/\/#swap.img/g' /etc/fstab
+sed -i 's/\/swap.img/#\/swap.img/g' /etc/fstab
+fi
 if [ -f /etc/systemd/zram-generator.conf ]; then
 mv /etc/systemd/zram-generator.conf /etc/systemd/zram-generator.conf.bak
 fi
-touch /etc/systemd/zram-generator.conf
 echo "[zram0]" >> /etc/systemd/zram-generator.conf
 echo "zram-size = min(ram, 8192)" >> /etc/systemd/zram-generator.conf
 echo "compression-algorithm = zstd" >> /etc/systemd/zram-generator.conf
@@ -57,10 +55,13 @@ sed -i 's/#DefaultDeviceTimeoutSec=90s/DefaultDeviceTimeoutSec=15s/g' /etc/syste
 
 # Configure grub
 echo "Configuring grub:"
+grub_lastline=$( tail -n 1 /etc/default/grub )
+if [ $grub_lastline != GRUB_RECORDFAIL_TIMEOUT=0 ]; then
 echo "GRUB_HIDDEN_TIMEOUT=0" >> /etc/default/grub
 echo "GRUB_RECORDFAIL_TIMEOUT=0" >> /etc/default/grub
 sed -i 's/quick_boot="1"/quick_boot="0"/g' /etc/grub.d/30_os-prober
 sed -i 's/set timeout=10/#set timeout=10/g' /etc/grub.d/30_os-prober
+fi
 update-grub
 
 # Configure firewall
