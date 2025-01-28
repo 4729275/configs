@@ -13,7 +13,7 @@ apt-get install -y ca-certificates curl exa gnupg htop snapd systemd-timesyncd v
 # Install docker
 echo "Installing docker:"
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 chmod a+r /etc/apt/keyrings/docker.asc
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
@@ -27,11 +27,17 @@ update-grub
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
+if [ ! -f /etc/crontab.bak ]
+cp /etc/crontab /etc/crontab.bak
 echo "0 4 1 * * root /sbin/reboot" >> /etc/crontab
+fi
 
 # Create bash aliases
 echo "Creating bash aliases:"
-touch /home/kenneth/.bash_aliases
+if [ -f /home/kenneth/.bash_aliases ]; then
+mv /home/kenneth/.bash_aliases /home/kenneth/.bash_aliases.bak
+chown kenneth:kenneth /home/kenneth/.bash_aliases.bak
+fi
 echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
