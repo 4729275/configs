@@ -24,7 +24,10 @@ apt-get install -y vim exa htop wget
 
 # Create bash aliases
 echo "Creating bash aliases:"
-touch /home/kenneth/.bash_aliases
+if [ -f /home/kenneth/.bash_aliases ]; then
+mv /home/kenneth/.bash_aliases /home/kenneth/.bash_aliases.bak
+chown kenneth:kenneth /home/kenneth/.bash_aliases.bak
+fi
 echo "alias ls='exa -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
