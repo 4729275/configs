@@ -15,7 +15,7 @@ snap refresh
 # Install packages
 echo "Installing packages:"
 apt-add-repository ppa:ubuntuhandbook1/howdy
-apt-get install audacity curl eza fastfetch ffmpeg fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake howdy htop inkscape kleopatra libinireader0 libpam-python libreoffice nextcloud-desktop psensor python3-dlib rhythmbox scdaemon systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw v4l-utils vim virt-manager vlc wireguard xournalpp zint-qt -y
+apt-get install audacity curl eza fastfetch ffmpeg fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake howdy htop inkscape kid3 kleopatra libinireader0 libpam-python libreoffice nextcloud-desktop psensor python3-dlib rhythmbox scdaemon systemd-zram-generator texstudio tilem timeshift tlp tlp-rdw v4l-utils vim virt-manager vlc wireguard xournalpp yt-dlp zint-qt -y
 apt-get remove fonts-noto* -y
 apt-get install fonts-noto-cjk fonts-noto-color-emoji -y
 snap install converternow zoom-client
@@ -47,7 +47,6 @@ echo "[zram0]" >> /etc/systemd/zram-generator.conf
 echo "zram-size = min(ram, 8192)" >> /etc/systemd/zram-generator.conf
 echo "compression-algorithm = zstd" >> /etc/systemd/zram-generator.conf
 
-
 # Configure systemd timeouts
 echo "Configuring systemd timeouts:"
 sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=15s/g' /etc/systemd/system.conf
@@ -70,6 +69,17 @@ systemctl enable --now ufw
 ufw default allow outgoing
 ufw default deny incoming
 ufw enable
+
+# Configure yt-dlp
+echo "Configuring yt-dlp:"
+if [ -f /etc/yt-dlp.conf ]; then
+mv /etc/yt-dlp.conf /etc/yt-dlp.conf.bak
+fi
+echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
+echo "-x" >> /etc/yt-dlp.conf
+echo "--audio-format mp3" >> /etc/yt-dlp.conf
+echo "--audio-quality 4" >> /etc/yt-dlp.conf
+echo "-o \"%(title)s.%(ext)s\"" >> /etc/yt-dlp.conf
 
 # Configure tlp
 echo "Configuring tlp:"
