@@ -82,6 +82,7 @@ echo "alias dnfup='sudo dnf upgrade && flatpak update'" >> /home/kenneth/.bash_a
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
+fi
 
 echo "Complete!"
 echo "Reboot the computer to finalize the changes."
