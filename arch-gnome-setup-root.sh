@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-### Arch Linux Setup Script (Plasma), Root Portion ###
+### Arch Linux Setup Script (GNOME), Root Portion ###
 # Kenneth Simmons, 2025
 
 echo "Arch Linux Setup, Root Portion - Kenneth Simmons, 2025"
