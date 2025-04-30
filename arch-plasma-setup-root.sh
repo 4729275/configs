@@ -7,7 +7,7 @@ echo "Arch Linux Setup, Root Portion - Kenneth Simmons, 2025"
 
 # Install packages
 echo "Installing packages:"
-pacman -Sy --noconfirm akregator audacity cdrtools devede dnsmasq dvd+rw-tools eza fastfetch gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 kleopatra ktorrent libaacs libdvdcss libreoffice-fresh mkvtoolnix-gui musescore nextcloud-client obs-studio qemu-full reflector rocm-opencl-runtime rpi-imager steam strawberry texlive-latex texstudio timeshift tk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox vulkan-radeon wireguard-tools yt-dlp
+pacman -Sy --noconfirm akregator audacity cdrtools devede dnsmasq dvd+rw-tools eza fastfetch gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 kleopatra ktorrent libaacs libdvdcss libreoffice-fresh mkvtoolnix-gui musescore nextcloud-client obs-studio psensor qemu-full reflector rocm-opencl-runtime rpi-imager steam strawberry texlive-latex texstudio timeshift tk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox vulkan-radeon wireguard-tools yt-dlp
 systemctl enable --now avahi-daemon.service
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
