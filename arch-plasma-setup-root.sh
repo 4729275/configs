@@ -37,6 +37,14 @@ echo "[General]" >> /etc/sddm.conf
 echo "InputMethod=" >> /etc/sddm.conf
 echo "Numlock=on" >> /etc/sddm.conf
 
+# Configure plymouth
+echo "Configuring plymouth:"
+if [ ! -f /boot/loader/entries/arch-nosplash.conf ]; then
+cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-nosplash.conf
+sed -i 's/title Arch Linux/title Arch Linux (no splash screen)/g' /boot/loader/entries/arch-nosplash.conf
+sed -i 's/@ rw/@ rw quiet splash/g' /boot/loader/entries/arch.conf
+fi
+
 # Configure firewall
 echo "Configuring firewall:"
 systemctl enable --now ufw
