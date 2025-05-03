@@ -16,7 +16,7 @@ rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S davinci-resolve libhashab-git librewolf-bin makemkv minecraft-launcher mullvad-vpn-bin teamviewer ventoy-bin
+paru -S davinci-resolve libhashab-git makemkv minecraft-launcher mullvad-vpn-bin teamviewer ventoy-bin
 sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
