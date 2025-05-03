@@ -15,10 +15,8 @@ snap refresh
 # Install packages
 echo "Installing packages:"
 add-apt-repository ppa:ubuntuhandbook1/howdy -y
-apt-get install extrepo -y
-extrepo enable librewolf
 apt-get update
-apt-get install audacity curl eza fastfetch ffmpeg fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake howdy htop inkscape kid3 kleopatra libpam-python libreoffice librewolf mkvtoolnix-gui nextcloud-desktop obs-studio psensor python3-dlib python3-tk scdaemon strawberry systemd-zram-generator texstudio timeshift tlp tlp-rdw v4l-utils vim virt-manager vlc wireguard xournalpp yt-dlp -y
+apt-get install audacity curl eza fastfetch ffmpeg fonts-roboto gimp gnome-calendar gnome-console gnome-snapshot gnome-tweaks gnome-weather handbrake howdy htop inkscape kid3 kleopatra libpam-python libreoffice mkvtoolnix-gui nextcloud-desktop obs-studio psensor python3-dlib python3-tk scdaemon strawberry systemd-zram-generator texstudio timeshift tlp tlp-rdw v4l-utils vim virt-manager vlc wireguard xournalpp yt-dlp -y
 apt-get remove fonts-noto* -y
 apt-get install fonts-noto-cjk fonts-noto-color-emoji -y
 snap install zoom-client
