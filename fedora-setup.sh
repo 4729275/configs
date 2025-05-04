@@ -26,7 +26,7 @@ dnf --setopt=install_weak_deps=False update @multimedia --exclude=PackageKit-gst
 dnf install intel-media-driver -y
 dnf copr enable alternateved/eza -y
 dnf copr enable luya/howdy -y
-dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts handbrake htop inkscape kid3 kleopatra mkvtoolnix-gui nextcloud-client obs-studio python3-tkinter qemu strawberry texstudio timeshift tlp tlp-rdw v4l-utils vim-enhanced virt-manager vlc wireguard-tools xournalpp xsensors yt-dlp -y
+dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts handbrake htop inkscape kid3 kleopatra mkvtoolnix-gui nextcloud-client obs-studio python3-dlib python3-tkinter qemu strawberry texstudio timeshift tlp tlp-rdw v4l-utils vim-enhanced virt-manager vlc wireguard-tools xournalpp xsensors yt-dlp -y
 dnf install --setopt=install_weak_deps=false install howdy -y
 flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro org.onlyoffice.desktopeditors us.zoom.Zoom
 systemctl enable --now libvirtd
@@ -59,7 +59,7 @@ tlp start
 # Configure howdy
 echo "Configuring howdy:"
 sed -i 's/device_path = none/device_path = \/dev\/video2/g' /usr/lib64/security/howdy/config.ini
-sed -i 's/dark_theshold = 50/dark_threshold = 80/g' /usr/lib64/security/howdy/config.ini
+sed -i 's/dark_threshold = 50/dark_threshold = 80/g' /usr/lib64/security/howdy/config.ini
 
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
