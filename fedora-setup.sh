@@ -25,7 +25,7 @@ dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf --setopt=install_weak_deps=False update @multimedia --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
 dnf copr enable alternateved/eza -y
-dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts handbrake htop inkscape kid3 kleopatra mkvtoolnix-gui nextcloud-client obs-studio python3-tkinter qemu strawberry texstudio timeshift tlp tlp-rdw v4l-utils vim-enhanced virt-manager vlc wireguard-tools xournalpp xsensors yt-dlp -y
+dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts handbrake htop inkscape kid3 kleopatra mkvtoolnix-gui nextcloud-client obs-studio python3-tkinter qemu texstudio timeshift tlp tlp-rdw v4l-utils vim-enhanced virt-manager vlc wireguard-tools xournalpp xsensors yt-dlp -y
 flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro org.onlyoffice.desktopeditors us.zoom.Zoom
 systemctl enable --now libvirtd
 usermod -aG libvirt kenneth
