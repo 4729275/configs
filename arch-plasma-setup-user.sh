@@ -33,7 +33,6 @@ echo "Configuring bash prompt:"
 if [ -f /home/kenneth/.bashrc ]; then
 mv /home/kenneth/.bashrc /home/kenneth/.bashrc.bak
 fi
-echo "[[ $- != *i* ]] && return" >> /home/kenneth/.bashrc
 echo "PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /home/kenneth/.bashrc
 
 # Create bash aliases
