@@ -65,7 +65,7 @@ systemctl enable --now unattended-upgrades
 
 # Setup monthly reboots
 echo "Setting up monthly reboots:"
-if [ ! -f /etc/crontab.bak ]
+if [ ! -f /etc/crontab.bak ]; then
 cp /etc/crontab /etc/crontab.bak
 echo "0 4 1 * * root /sbin/reboot" >> /etc/crontab
 fi
