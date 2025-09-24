@@ -16,12 +16,12 @@ rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S davinci-resolve libhashab-git makemkv minecraft-launcher mullvad-vpn-bin teamviewer ventoy-bin
+paru -S davinci-resolve libhashab-git makemkv minecraft-launcher mullvad-vpn-bin teamviewer ventoy-bin zoom
 sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro  io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup us.zoom.Zoom
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro  io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
 
 # Installing correct Vulkan drivers
 echo "Installing Vulkan drivers - manual confirmation required:"
