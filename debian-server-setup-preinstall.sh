@@ -46,7 +46,7 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y ca-certificates curl exa ffmpeg gnupg htop snapd sudo systemd-timesyncd vim wget
+apt-get install -y ca-certificates curl eza ffmpeg gnupg htop snapd sudo systemd-timesyncd vim wget
 
 # Install docker
 echo "Installing docker:"
