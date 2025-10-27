@@ -28,7 +28,7 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y exa vim
+apt-get install -y eza vim
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
