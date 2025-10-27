@@ -11,6 +11,12 @@ apt-get update
 apt-get dist-upgrade -y
 apt-get autoremove -y
 
+# Configure sudo
+echo "Configuring sudo:"
+if [ -f /etc/sudoers.d/010_pi-nopasswd ]; then
+rm /etc/sudoers.d/010_pi-nopasswd
+fi
+
 # Configure locales
 echo "Configuring locales:"
 sed -i 's/# en_CA.UTF-8 UTF-8/en_CA.UTF-8 UTF-8/g' /etc/locale.gen
