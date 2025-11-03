@@ -13,8 +13,9 @@ apt-get full-upgrade -y
 
 # Install packages
 echo "Installing packages:"
-apt-get install audacity eza fastfetch fonts-noto-cjk fonts-roboto gimp gnome-themes-extra handbrake htop inkscape kid3 mkvtoolnix-gui nextcloud-desktop obs-studio plymouth-themes psensor python3-tk texstudio timeshift tlp tlp-rdw ufw v4l2loopback-dkms vim virt-manager vlc wireguard xournalpp yt-dlp -y
-flatpak install com.github.tchx84.Flatseal org.onlyoffice.desktopeditors -y
+apt-get install audacity eza fastfetch flatpak fonts-noto-cjk fonts-roboto gimp gnome-software-plugin-flatpak gnome-themes-extra handbrake htop inkscape kid3 mkvtoolnix-gui nextcloud-desktop obs-studio plymouth-themes psensor python3-tk rhythmbox texstudio timeshift tlp tlp-rdw ufw v4l2loopback-dkms vim virt-manager vlc wireguard xournalpp yt-dlp -y
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.github.tchx84.Flatseal org.onlyoffice.desktopeditors -y
 systemctl start ufw tlp
 usermod -aG libvirt kenneth
 
@@ -63,7 +64,7 @@ fi
 
 # Remove packages
 echo "Removing packages:"
-apt-get purge gnome-terminal -y
+apt-get purge evince gnome-terminal -y
 apt-get autoremove -y
 
 echo "Complete!"
