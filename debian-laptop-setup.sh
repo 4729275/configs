@@ -13,10 +13,9 @@ apt-get full-upgrade -y
 
 # Install packages
 echo "Installing packages:"
-apt-get install [packages] -y
-flatpak install -y [packages]
-sed -i 's/firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
-systemctl enable --now libvirtd ufw tlp
+apt-get install audacity eza fastfetch fonts-noto-cjk fonts-roboto gimp gnome-themes-extra handbrake htop inkscape kid3 mkvtoolnix-gui nextcloud-desktop obs-studio plymouth-themes psensor python3-tk texstudio timeshift tlp tlp-rdw v4l2loopback-dkms vim virt-manager vlc wireguard xournalpp yt-dlp -y
+flatpak install com.github.tchx84.Flatseal org.onlyoffice.desktopeditors -y
+systemctl start ufw tlp
 usermod -aG libvirt kenneth
 
 # Configure firewall
@@ -40,7 +39,7 @@ if [ -f /etc/grub.d/05_debian_theme ]; then
 rm /etc/grub.d/05_debian_theme
 fi
 update-grub
-
+plymouth-set-default-theme -R bgrt
 
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
