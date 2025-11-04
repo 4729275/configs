@@ -25,10 +25,10 @@ dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf --setopt=install_weak_deps=False update @multimedia --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
 dnf copr enable alternateved/eza -y
-dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts handbrake htop inkscape kid3 kleopatra mkvtoolnix-gui nextcloud-client obs-studio python3-tkinter qemu texstudio timeshift tlp tlp-rdw v4l-utils vim-enhanced virt-manager vlc wireguard-tools xournalpp xsensors yt-dlp -y
+dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts handbrake htop inkscape kid3 mkvtoolnix-gui nextcloud-client obs-studio python3-tkinter qemu texstudio timeshift tlp tlp-rdw v4l-utils vim-enhanced virt-manager vlc wireguard-tools xournalpp xsensors yt-dlp -y
 flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro org.onlyoffice.desktopeditors
 sed -i 's/firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
-systemctl enable --now libvirtd
+systemctl enable --now libvirtd tlp
 usermod -aG libvirt kenneth
 
 # Configure dnf
@@ -49,7 +49,6 @@ ufw enable
 
 # Configure tlp
 echo "Configuring tlp:"
-systemctl enable --now tlp
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 sed -i 's/#USB_AUTOSUSPEND=1/USB_AUTOSUSPEND=0/g' /etc/tlp.conf
 systemctl restart tlp
