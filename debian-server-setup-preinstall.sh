@@ -39,7 +39,7 @@ usermod -s /bin/bash kenneth
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y ca-certificates curl eza ffmpeg gnupg htop snapd sudo systemd-timesyncd vim wget
+apt-get install ca-certificates curl eza ffmpeg gnupg htop snapd sudo systemd-timesyncd vim wget -y
 
 # Install docker
 echo "Installing docker:"
@@ -55,12 +55,12 @@ echo "Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")" >> /etc/apt/sour
 echo "Components: stable" >> /etc/apt/sources.list.d/docker.sources
 echo "Signed-By: /etc/apt/keyrings/docker.asc" >> /etc/apt/sources.list.d/docker.sources
 apt-get update
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 usermod -aG docker kenneth
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
-apt-get install -y unattended-upgrades
+apt-get install unattended-upgrades -y
 systemctl enable --now unattended-upgrades
 
 # Setup monthly reboots
