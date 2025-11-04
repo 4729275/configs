@@ -5,17 +5,10 @@
 
 echo "Debian Server Setup - Pre-Installed System - Kenneth Simmons, 2025"
 
-# Set apt sources
-echo "Setting apt sources:"
-if [ ! -f /etc/apt/sources.list.bak ]; then
-cp /etc/apt/sources.list /etc/apt/sources.list.bak
-sed -i 's/main/main contrib non-free non-free-firmware/g' /etc/apt/sources.list
-fi
-
 # Update the system
 echo "Updating the system:"
 apt-get update
-apt-get dist-upgrade -y
+apt-get full-upgrade -y
 apt-get autoremove -y
 
 # Configure locales
