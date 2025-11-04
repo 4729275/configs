@@ -8,7 +8,7 @@ echo "Debian WSL Setup - Kenneth Simmons, 2025"
 # Update the system
 echo "Updating the system:"
 apt-get update
-apt-get dist-upgrade -y
+apt-get full-upgrade -y
 apt-get autoremove -y
 
 # Configure locales
@@ -23,7 +23,7 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y vim exa htop wget
+apt-get install vim exa htop wget -y
 
 # Create bash aliases
 echo "Creating bash aliases:"
