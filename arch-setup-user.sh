@@ -16,17 +16,11 @@ rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S davinci-resolve libhashab-git makemkv minecraft-launcher mullvad-vpn-bin teamviewer ventoy-bin zoom
-sudo systemctl enable --now teamviewerd
+paru -S makemkv minecraft-launcher mullvad-vpn-bin ventoy-bin zoom
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
 flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro  io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
-
-# Installing correct Vulkan drivers
-echo "Installing Vulkan drivers - manual confirmation required:"
-sudo pacman -S vulkan-radeon
-sudo pacman -Rns amdvlk
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
