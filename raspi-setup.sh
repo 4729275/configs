@@ -8,7 +8,7 @@ echo "Raspberry Pi Setup - Kenneth Simmons, 2025"
 # Update the system
 echo "Updating the system:"
 apt-get update
-apt-get dist-upgrade -y
+apt-get full-upgrade -y
 apt-get autoremove -y
 
 # Configure sudo
@@ -28,11 +28,11 @@ locale-gen
 
 # Install packages
 echo "Installing packages:"
-apt-get install -y eza vim
+apt-get install eza vim -y
 
 # Configure unattended-upgrades
 echo "Configuring unattended-upgrades:"
-apt-get install -y unattended-upgrades
+apt-get install unattended-upgrades -y
 systemctl enable --now unattended-upgrades
 
 # Setup monthly reboots
