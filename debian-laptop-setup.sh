@@ -8,7 +8,7 @@ echo "Debian Laptop Setup - Kenneth Simmons, 2025"
 # Update the system
 echo "Updating the system:"
 sed -i 's/trixie/forky/g' /etc/apt/sources.list.d/*
-apt-get update -y
+apt-get update
 apt-get full-upgrade -y
 
 # Install packages
