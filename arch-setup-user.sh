@@ -16,7 +16,7 @@ rm -rf paru-bin
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
-paru -S makemkv minecraft-launcher mullvad-vpn-bin ventoy-bin zoom
+paru -S makemkv minecraft-launcher mullvad-vpn-bin opencl-amd ventoy-bin zoom
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
