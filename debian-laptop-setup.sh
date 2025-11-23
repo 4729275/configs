@@ -80,7 +80,7 @@ fi
 
 # Remove packages
 echo "Removing packages:"
-apt-get purge evince evolution gnome-maps gnome-music gnome-terminal shotwell -y
+apt-get purge evince gnome-music gnome-terminal -y
 apt-get autoremove -y
 
 echo "Complete!"
