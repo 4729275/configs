@@ -13,9 +13,9 @@ apt-get full-upgrade -y
 
 # Install packages
 echo "Installing packages:"
-apt-get install audacity eza fastfetch flatpak fonts-noto-cjk fonts-roboto gnome-software-plugin-flatpak gnome-themes-extra htop inkscape kid3 nextcloud-desktop plymouth-themes psensor python3-tk rhythmbox systemd-zram-generator texstudio timeshift tlp tlp-rdw ufw v4l2loopback-dkms vim virt-manager wireguard yt-dlp -y
+apt-get install audacity eza fastfetch flatpak fonts-noto-cjk fonts-roboto gnome-software-plugin-flatpak gnome-themes-extra htop inkscape kid3 mkvtoolnix-gui nextcloud-desktop plymouth-themes psensor python3-tk rhythmbox systemd-zram-generator texstudio timeshift tlp tlp-rdw ufw v4l2loopback-dkms vim virt-manager wireguard yt-dlp -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.github.tchx84.Flatseal com.google.EarthPro org.gimp.GIMP fr.handbrake.ghb org.bunkus.mkvtoolnix-gui com.obsproject.Studio org.onlyoffice.desktopeditors org.videolan.VLC com.github.xournalpp.xournalpp -y
+flatpak install flathub com.github.tchx84.Flatseal com.google.EarthPro org.gimp.GIMP fr.handbrake.ghb com.obsproject.Studio org.onlyoffice.desktopeditors org.videolan.VLC com.github.xournalpp.xournalpp -y
 flatpak override --env=QT_DEVICE_PIXEL_RATIO=2 com.google.EarthPro
 git clone https://gitlab.gnome.org/GNOME/adwaita-fonts /home/kenneth/adwaita-fonts
 mkdir /home/kenneth/.local/share/fonts
