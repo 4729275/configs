@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-### Arch Linux Setup Script (GNOME), User Portion ###
+### Arch Linux Setup Script, User Portion ###
 # Kenneth Simmons, 2025
 
 echo "Arch Linux Setup, User Portion - Kenneth Simmons, 2025"
