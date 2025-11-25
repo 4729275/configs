@@ -53,6 +53,7 @@ systemctl start fwupd
 sbctl sign -s -o /usr/lib/fwupd/efi/fwupdx64.efi.signed /usr/lib/fwupd/efi/fwupdx64.efi
 if [ ! -f /etc/fwupd/fwupd.conf.bak ]; then
 cp /etc/fwupd/fwupd.conf /etc/fwupd/fwupd.conf.bak
+echo "DisabledPlugins=test;test_ble;invalid;bios" >> /etc/fwupd/fwupd.conf
 echo "[uefi_capsule]" >> /etc/fwupd/fwupd.conf
 echo "DisableShimForSecureBoot=true" >> /etc/fwupd/fwupd.conf
 systemctl restart fwupd
