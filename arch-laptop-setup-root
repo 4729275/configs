@@ -1,6 +1,0 @@
-#! /usr/bin/bash
-
-### Arch Linux Laptop Setup Script, Root Portion ###
-# Kenneth Simmons, 2025
-
-echo "Arch Linux Laptop Setup, Root Portion - Kenneth Simmons, 2025"
