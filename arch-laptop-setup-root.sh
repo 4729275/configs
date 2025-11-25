@@ -49,6 +49,7 @@ tlp start
 
 # Configure fwupd
 echo "Configuring fwupd:"
+systemctl start fwupd
 sbctl sign -s -o /usr/lib/fwupd/efi/fwupdx64.efi.signed /usr/lib/fwupd/efi/fwupdx64.efi
 if [ ! -f /etc/fwupd/fwupd.conf.bak ]; then
 cp /etc/fwupd/fwupd.conf /etc/fwupd/fwupd.conf.bak
