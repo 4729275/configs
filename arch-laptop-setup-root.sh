@@ -9,7 +9,7 @@ echo "Arch Linux Laptop Setup, Root Portion - Kenneth Simmons, 2025"
 echo "Installing packages:"
 pacman -Sy --noconfirm audacity eza fastfetch firefox fwupd gimp gvfs-dnssd handbrake hplip htop inkscape kid3 libreoffice-still mkvtoolnix-gui nextcloud-client obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox texlive-latex texstudio timeshift tk tlp tlp-rdw ttf-liberation ttf-roboto ufw v4l2loopback-dkms virt-manager vlc wireguard-tools xournalpp yt-dlp
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
-systemctl enable --now avahi-daemon.service libvirtd tlp ufw
+systemctl enable --now avahi-daemon.service libvirtd tlp udisks2 ufw
 usermod -aG libvirt kenneth
 
 # Configure reflector
