@@ -20,7 +20,7 @@ paru -S makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro  io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
