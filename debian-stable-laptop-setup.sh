@@ -3,7 +3,7 @@
 ### Debian Stable Laptop Setup Script ###
 # Kenneth Simmons, 2025
 
-echo "Debian Laptop Setup - Kenneth Simmons, 2025"
+echo "Debian Stable Laptop Setup - Kenneth Simmons, 2025"
 
 # Update the system
 echo "Updating the system:"
