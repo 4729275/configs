@@ -8,11 +8,11 @@ echo "Arch Linux Setup, User Portion - Kenneth Simmons, 2025"
 # Install AUR helper
 echo "Installing AUR helper - manual confirmation required:"
 cd /home/kenneth
-git clone https://aur.archlinux.org/paru-bin
-cd paru-bin
+git clone https://aur.archlinux.org/paru
+cd paru
 makepkg -si
 cd ..
-rm -rf paru-bin
+rm -rf paru
 
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
