@@ -7,7 +7,7 @@ echo "Arch Linux Laptop Setup, Root Portion - Kenneth Simmons, 2025"
 
 # Install packages
 echo "Installing packages:"
-pacman -Sy --noconfirm audacity eza fastfetch firefox fwupd gimp handbrake hplip htop inkscape kid3 libreoffice-still mkvtoolnix-gui nextcloud-client obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox texlive-latex texstudio timeshift tk tlp tlp-rdw ttf-liberation ttf-roboto ufw v4l2loopback-dkms virt-manager vlc wireguard-tools xournalpp yt-dlp
+pacman -Sy --noconfirm audacity eza fastfetch firefox fwupd gimp handbrake hplip htop inkscape kid3 libreoffice-fresh mkvtoolnix-gui nextcloud-client obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox texlive-latex texstudio timeshift tk tlp tlp-rdw ttf-liberation ttf-roboto ufw v4l2loopback-dkms virt-manager vlc wireguard-tools xournalpp yt-dlp
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now avahi-daemon.service libvirtd tlp udisks2 ufw
 usermod -aG libvirt kenneth
@@ -66,7 +66,7 @@ mv /etc/yt-dlp.conf /etc/yt-dlp.conf.bak
 fi
 echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
 echo "-x" >> /etc/yt-dlp.conf
-echo "--audio-format best" >> /etc/yt-dlp.conf
+echo "--audio-format opus" >> /etc/yt-dlp.conf
 echo "-o \"%(title)s.%(ext)s\"" >> /etc/yt-dlp.conf
 
 echo "Root portion complete!"
