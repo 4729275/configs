@@ -65,14 +65,14 @@ mv /etc/yt-dlp.conf /etc/yt-dlp.conf.bak
 fi
 echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
 echo "-x" >> /etc/yt-dlp.conf
-echo "--audio-format best" >> /etc/yt-dlp.conf
+echo "--audio-format opus" >> /etc/yt-dlp.conf
 echo "-o \"%(title)s.%(ext)s\"" >> /etc/yt-dlp.conf
 
 # Create bash aliases
 echo "Creating bash aliases:"
 if [ ! -f /home/kenneth/.bash_aliases ]; then
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
-echo "alias aptup='sudo apt update && sudo apt upgrade && flatpak update'" >> /home/kenneth/.bash_aliases
+echo "alias aptup='sudo apt update && sudo apt upgrade && sudo apt autoremove && flatpak update'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
