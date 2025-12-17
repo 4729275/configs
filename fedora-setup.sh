@@ -62,7 +62,7 @@ mv /etc/yt-dlp.conf /etc/yt-dlp.conf.bak
 fi
 echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
 echo "-x" >> /etc/yt-dlp.conf
-echo "--audio-format best" >> /etc/yt-dlp.conf
+echo "--audio-format opus" >> /etc/yt-dlp.conf
 echo "-o \"%(title)s.%(ext)s\"" >> /etc/yt-dlp.conf
 
 # Create bash aliases
