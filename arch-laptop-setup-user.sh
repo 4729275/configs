@@ -20,7 +20,7 @@ paru -S mullvad-vpn-bin zoom
 
 # Install Flatpak packages
 echo "Installing Flatpak packages - manual confirmation required:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors
 sudo flatpak override --env=QT_DEVICE_PIXEL_RATIO=2 com.google.EarthPro
 
 # Configure bash prompt
