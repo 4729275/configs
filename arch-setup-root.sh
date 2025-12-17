@@ -7,7 +7,7 @@ echo "Arch Linux Setup, Root Portion - Kenneth Simmons, 2025"
 
 # Install packages
 echo "Installing packages:"
-pacman -Sy --noconfirm audacity cdrdao cdrtools devede dnsmasq dvd+rw-tools eza fastfetch firefox fwupd gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 lib32-gcc-libs lib32-glibc libaacs libdvdcss libgpod libreoffice-fresh mkvtoolnix-gui musescore obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox rpi-imager steam texlive-latex texstudio timeshift tk transmission-gtk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox virtualbox-guest-iso virtualbox-host-modules-arch vlc vulkan-radeon wireguard-tools yt-dlp
+pacman -Sy --noconfirm audacity cdrdao cdrtools devede dnsmasq dvd+rw-tools eza fastfetch firefox fwupd gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 lib32-gcc-libs lib32-glibc libaacs libdvdcss libgpod libreoffice-fresh mkvtoolnix-gui musescore obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox rpi-imager steam texlive-latex texstudio timeshift tk transmission-gtk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox virtualbox-guest-iso virtualbox-host-modules-arch vlc vlc-plugin-ffmpeg vulkan-radeon wireguard-tools yt-dlp
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now avahi-daemon.service libvirtd udisks2 ufw
 usermod -aG libvirt kenneth
