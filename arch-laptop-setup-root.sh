@@ -7,7 +7,7 @@ echo "Arch Linux Laptop Setup, Root Portion - Kenneth Simmons, 2025"
 
 # Install packages
 echo "Installing packages:"
-pacman -Sy --noconfirm audacity eza fastfetch firefox fwupd gimp handbrake hplip htop inetutils inkscape kid3 libreoffice-fresh mkvtoolnix-gui obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox texlive-latex texstudio timeshift tk tlp tlp-rdw ttf-liberation ttf-roboto ufw v4l2loopback-dkms virt-manager vlc vlc-plugin-ffmpeg wireguard-tools xournalpp yt-dlp
+pacman -Sy --noconfirm audacity dnsmasq eza fastfetch firefox fwupd gimp handbrake hplip htop inetutils inkscape kid3 libreoffice-fresh mkvtoolnix-gui obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox texlive-latex texstudio timeshift tk tlp tlp-rdw ttf-liberation ttf-roboto ufw v4l2loopback-dkms virt-manager vlc vlc-plugin-ffmpeg wireguard-tools xournalpp yt-dlp
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now avahi-daemon.service libvirtd tlp udisks2 ufw
 usermod -aG libvirt kenneth
