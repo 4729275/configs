@@ -1,9 +1,9 @@
 #! /usr/bin/bash
 
 ### Arch Linux Setup Script, User Portion ###
-# Kenneth Simmons, 2025
+# Kenneth Simmons, 2026
 
-echo "Arch Linux Setup, User Portion - Kenneth Simmons, 2025"
+echo "Arch Linux Setup, User Portion - Kenneth Simmons, 2026"
 
 # Install AUR helper
 echo "Installing AUR helper - manual confirmation required:"
@@ -25,7 +25,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
