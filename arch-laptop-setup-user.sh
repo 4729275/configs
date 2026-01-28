@@ -1,9 +1,9 @@
 #! /usr/bin/bash
 
 ### Arch Linux Laptop Setup Script, User Portion ###
-# Kenneth Simmons, 2025
+# Kenneth Simmons, 2026
 
-echo "Arch Linux Laptop Setup, User Portion - Kenneth Simmons, 2025"
+echo "Arch Linux Laptop Setup, User Portion - Kenneth Simmons, 2026"
 
 # Install AUR helper
 echo "Installing AUR helper - manual confirmation required:"
@@ -20,7 +20,7 @@ paru -S mullvad-vpn-bin zoom
 
 # Install Flatpak packages
 echo "Installing Flatpak packages - manual confirmation required:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors
 sudo flatpak override --env=QT_DEVICE_PIXEL_RATIO=2 com.google.EarthPro
 
 # Configure bash prompt
