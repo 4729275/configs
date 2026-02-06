@@ -25,7 +25,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
