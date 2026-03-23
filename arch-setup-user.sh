@@ -25,7 +25,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash com.nextcloud.desktopclient.nextcloud org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
+flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
@@ -42,7 +42,7 @@ echo "fi" >> /home/kenneth/.bashrc
 if [ -f /home/kenneth/.bash_aliases ]; then
 mv /home/kenneth/.bash_aliases /home/kenneth/.bash_aliases.bak
 fi
-echo "alias pacup='paru && flatpak update && sudo fwupdmgr refresh && sudo fwupdmgr update'" >> /home/kenneth/.bash_aliases
+echo "alias pacup='paru && flatpak update'" >> /home/kenneth/.bash_aliases
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
 echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
 echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
