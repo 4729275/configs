@@ -1,13 +1,13 @@
 #! /usr/bin/bash
 
 ### Arch Linux Setup Script, Root Portion ###
-# Kenneth Simmons, 2025
+# Kenneth Simmons, 2026
 
-echo "Arch Linux Setup, Root Portion - Kenneth Simmons, 2025"
+echo "Arch Linux Setup, Root Portion - Kenneth Simmons, 2026"
 
 # Install packages
 echo "Installing packages:"
-pacman -Sy --noconfirm audacity cdrdao cdrtools deno devede dnsmasq dvd+rw-tools eza fastfetch firefox fwupd gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 lib32-gcc-libs lib32-glibc libaacs libdvdcss libgpod libreoffice-fresh mkvtoolnix-gui musescore obs-studio plymouth psensor qemu-full qt6-wayland reflector rhythmbox rpi-imager steam texlive-latex texstudio timeshift tk transmission-gtk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox virtualbox-guest-iso virtualbox-host-modules-arch vlc vlc-plugin-ffmpeg vulkan-radeon wireguard-tools yt-dlp
+pacman -Sy --noconfirm audacity cdrdao cdrtools devede dnsmasq dvd+rw-tools eza fastfetch firefox gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 libaacs libdvdcss libgpod libreoffice-fresh mkvtoolnix-gui musescore obs-studio plymouth qemu-full qt6-wayland reflector rhythmbox rpi-imager snapper steam texlive-latex texstudio timeshift tk transmission-gtk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox virtualbox-guest-iso virtualbox-host-modules-arch vlc vlc-plugin-ffmpeg vulkan-radeon wireguard-tools yt-dlp yt-dlp-ejs
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now avahi-daemon.service libvirtd udisks2 ufw
 usermod -aG libvirt kenneth
@@ -21,8 +21,8 @@ fi
 echo "--save /etc/pacman.d/mirrorlist" >> /etc/xdg/reflector/reflector.conf
 echo "--protocol https" >> /etc/xdg/reflector/reflector.conf
 echo "--country US" >> /etc/xdg/reflector/reflector.conf
-echo "--latest 200" >> /etc/xdg/reflector/reflector.conf
-echo "--number 20" >> /etc/xdg/reflector/reflector.conf
+echo "--latest 20" >> /etc/xdg/reflector/reflector.conf
+echo "--number 10" >> /etc/xdg/reflector/reflector.conf
 echo "--sort rate" >> /etc/xdg/reflector/reflector.conf
 systemctl enable --now reflector
 systemctl enable --now reflector.timer
@@ -40,18 +40,6 @@ echo "Configuring firewall:"
 ufw default allow outgoing
 ufw default deny incoming
 ufw enable
-
-# Configure fwupd
-echo "Configuring fwupd:"
-systemctl start fwupd
-sbctl sign -s -o /usr/lib/fwupd/efi/fwupdx64.efi.signed /usr/lib/fwupd/efi/fwupdx64.efi
-if [ ! -f /etc/fwupd/fwupd.conf.bak ]; then
-cp /etc/fwupd/fwupd.conf /etc/fwupd/fwupd.conf.bak
-echo "DisabledPlugins=test;test_ble;invalid;bios" >> /etc/fwupd/fwupd.conf
-echo "[uefi_capsule]" >> /etc/fwupd/fwupd.conf
-echo "DisableShimForSecureBoot=true" >> /etc/fwupd/fwupd.conf
-systemctl restart fwupd
-fi
 
 # Configure yt-dlp
 echo "Configuring yt-dlp:"
