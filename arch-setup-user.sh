@@ -17,6 +17,9 @@ rm -rf paru
 # Install AUR packages
 echo "Installing AUR packages - manual confirmation required:"
 paru -S qt5-webchannel
+wget https://repo.arcanis.me/arcanisrepo/x86_64/qt5-location-5.15.18-kde-r7-2-x86_64.pkg.tar.zst
+sudo pacman -U ./qt5-location-5.15.18-kde-r7-2-x86_64.pkg.tar.zst
+rm qt5-location-5.15.18-kde-r7-2-x86_64.pkg.tar.zst
 wget https://aur.andontie.net/x86_64/qt5-webengine-5.15.19-4-x86_64.pkg.tar.zst
 sudo pacman -U ./qt5-webengine-5.15.19-4-x86_64.pkg.tar.zst
 rm qt5-webengine-5.15.19-4-x86_64.pkg.tar.zst
