@@ -7,7 +7,7 @@ echo "Arch Linux Setup, Root Portion - Kenneth Simmons, 2026"
 
 # Install packages
 echo "Installing packages:"
-pacman -Sy --noconfirm audacity cdrdao cdrtools devede dnsmasq dvd+rw-tools eza fastfetch firefox gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 lib32-vulkan-radeon libaacs libdvdcss libgpod libreoffice-fresh mkvtoolnix-gui musescore nextcloud-client obs-studio plymouth qemu-full qt6-wayland reflector rhythmbox rpi-imager rust snapper steam texlive-latex texstudio tk transmission-gtk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox virtualbox-guest-iso virtualbox-host-modules-arch vlc vlc-plugin-ffmpeg vulkan-radeon wireguard-tools yt-dlp yt-dlp-ejs
+pacman -Sy --noconfirm audacity cdrdao cdrtools devede dnsmasq dvd+rw-tools eza fastfetch firefox gimp handbrake hplip htop inetutils inkscape jre-openjdk k3b kid3 lib32-vulkan-radeon libaacs libdvdcss libgpod libreoffice-fresh mkvtoolnix-gui musescore nextcloud-client obs-studio plymouth qemu-full qt6-multimedia-ffmpeg qt6-wayland reflector rhythmbox rpi-imager rust snapper steam texlive-latex texstudio tk transmission-gtk ttf-liberation ttf-roboto udftools ufw v4l2loopback-dkms virt-manager virtualbox virtualbox-guest-iso virtualbox-host-modules-arch vlc vlc-plugin-ffmpeg vulkan-radeon wireguard-tools yt-dlp yt-dlp-ejs
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now avahi-daemon.service libvirtd udisks2 ufw
 usermod -aG libvirt kenneth
@@ -15,7 +15,14 @@ usermod -aG vboxusers kenneth
 
 # Configure snapper
 echo "Configuring snapper:"
+if [ ! -f /etc/snapper/configs/root ]; then
 snapper -c root create-config /
+sed -i 's/TIMELINE_LIMIT_HOURLY="10"/TIMELINE_LIMIT_HOURLY="0"/g' /etc/snapper/configs/root
+sed -i 's/TIMELINE_LIMIT_DAILY="10"/TIMELINE_LIMIT_DAILY="5"/g' /etc/snapper/configs/root
+sed -i 's/TIMELINE_LIMIT_WEEKLY="0"/TIMELINE_LIMIT_WEEKLY="3"/g' /etc/snapper/configs/root
+sed -i 's/TIMELINE_LIMIT_MONTHLY="10"/TIMELINE_LIMIT_MONTHLY="1"/g' /etc/snapper/configs/root
+sed -i 's/TIMELINE_LIMIT_YEARLY="10"/TIMELINE_LIMIT_YEARLY="0"/g' /etc/snapper/configs/root
+fi
 
 # Configure reflector
 echo "Configuring reflector:"
