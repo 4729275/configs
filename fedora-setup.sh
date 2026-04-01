@@ -24,8 +24,7 @@ dnf install rpmfusion-\*-appstream-data -y
 dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
-dnf copr enable alternateved/eza -y
-dnf install audacity eza fastfetch gimp gnome-themes-extra gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape kid3 kmod-v4l2loopback nextcloud-client obs-studio python3-tkinter qemu rhythmbox texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
+dnf install adw-gtk3-theme audacity eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape kid3 kmod-v4l2loopback nextcloud-client obs-studio python3-tkinter qemu rhythmbox texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
 flatpak install -y flathub com.github.tchx84.Flatseal com.google.EarthPro io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors
 flatpak override --env=QT_DEVICE_PIXEL_RATIO=2 com.google.EarthPro
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
