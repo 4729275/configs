@@ -11,6 +11,10 @@ echo "Enter hostname:"
 read hostname
 hostnamectl hostname $hostname
 
+# Enable NTP
+echo "Enabling NTP:"
+systemctl enable --now systemd-timesyncd
+
 # Update the system
 echo "Updating the system:"
 dnf upgrade -y
