@@ -22,9 +22,9 @@ flatpak update
 
 # Install packages
 echo "Installing packages:"
-dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-44.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-44.noarch.rpm -y # Update ...release-##... to match current Fedora version
+dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf config-manager setopt fedora-cisco-openh264.enabled=1
-dnf install rpmfusion-\*-appstream-data -y
+dnf install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data -y
 dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
