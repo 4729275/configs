@@ -47,8 +47,10 @@ mv /home/kenneth/.bash_aliases /home/kenneth/.bash_aliases.bak
 fi
 echo "alias pacup='paru && flatpak update'" >> /home/kenneth/.bash_aliases
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
-echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
-echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
+echo "alias wgupf='sudo wg-quick up family'" >> /home/kenneth/.bash_aliases
+echo "alias wgdnf='sudo wg-quick down family'" >> /home/kenneth/.bash_aliases
+echo "alias wgupk='sudo wg-quick up kenneth'" >> /home/kenneth/.bash_aliases
+echo "alias wgdnk='sudo wg-quick down kenneth'" >> /home/kenneth/.bash_aliases
 
 echo "User portion complete!"
 echo "Reboot the system to finalize the changes."
