@@ -73,8 +73,10 @@ echo ". ~/.bash_aliases" >> /home/kenneth/.bashrc
 echo "fi" >> /home/kenneth/.bashrc
 echo "alias dnfup='sudo dnf upgrade && flatpak update'" >> /home/kenneth/.bash_aliases
 echo "alias ls='eza -al --group-directories-first'" >> /home/kenneth/.bash_aliases
-echo "alias wgup='sudo wg-quick up home'" >> /home/kenneth/.bash_aliases
-echo "alias wgdn='sudo wg-quick down home'" >> /home/kenneth/.bash_aliases
+echo "alias wgupf='sudo wg-quick up family'" >> /home/kenneth/.bash_aliases
+echo "alias wgdnf='sudo wg-quick down family'" >> /home/kenneth/.bash_aliases
+echo "alias wgupk='sudo wg-quick up kenneth'" >> /home/kenneth/.bash_aliases
+echo "alias wgdnk='sudo wg-quick down kenneth'" >> /home/kenneth/.bash_aliases
 chown kenneth:kenneth /home/kenneth/.bash_aliases
 fi
 
