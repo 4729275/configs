@@ -28,7 +28,7 @@ dnf install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data -y
 dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
-dnf install adw-gtk3-theme audacity eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
+dnf install adw-gtk3-theme audacity eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
 flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
@@ -59,6 +59,7 @@ echo "-P /home/kenneth/Downloads/" >> /etc/yt-dlp.conf
 echo "-x" >> /etc/yt-dlp.conf
 echo "--audio-format opus" >> /etc/yt-dlp.conf
 echo "-o \"%(title)s.%(ext)s\"" >> /etc/yt-dlp.conf
+echo "--js-runtimes node" >> /etc/yt-dlp.conf
 echo "--cookies-from-browser firefox" >> /etc/yt-dlp.conf
 echo "--remote-components ejs:github" >> /etc/yt-dlp.conf
 
