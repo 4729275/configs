@@ -25,7 +25,6 @@ echo "Components: stable" >> /etc/apt/sources.list.d/docker.sources
 echo "Signed-By: /etc/apt/keyrings/docker.asc" >> /etc/apt/sources.list.d/docker.sources
 apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-usermod -aG docker kenneth
 
 # Configure GRUB
 echo "Configuring GRUB:"
