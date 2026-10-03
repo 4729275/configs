@@ -25,7 +25,7 @@ rm qt5-webchannel-5.15.19-1-x86_64.pkg.tar.zst
 wget https://repo.arcanis.me/arcanisrepo/x86_64/qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
 sudo pacman -U ./qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
 rm qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
-paru -S makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-bin zoom
+paru -S audacity4-bin makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-bin zoom
 sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
