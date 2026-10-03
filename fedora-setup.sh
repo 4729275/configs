@@ -38,6 +38,7 @@ mkdir /home/kenneth/.local/share/applications
 fi
 wget https://github.com/audacity/audacity/releases/download/Audacity-4.0.1/audacity-linux-4.0.1-x86_64.AppImage
 cp audacity-linux-4.0.1-x86_64.AppImage /home/kenneth/Documents/AppImages/
+cp Audacity4.svg /home/kenneth/Documents/AppImages/
 cp Audacity4.desktop /home/kenneth/.local/share/applications
 chown -R kenneth:kenneth /home/kenneth/Documents/AppImages
 chmod +x /home/kenneth/Documents/AppImages/audacity-linux-4.0.1-x86_64.AppImage
