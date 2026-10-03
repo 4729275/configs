@@ -28,8 +28,20 @@ dnf install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data -y
 dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
-dnf install adw-gtk3-theme audacity eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
+dnf install adw-gtk3-theme eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
 flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
+if [ ! -d /home/kenneth/Documents/AppImages ]; then
+mkdir /home/kenneth/Documents/AppImages
+fi
+if [ ! -d /home/kenneth/.local/share/applications ]; then
+mkdir /home/kenneth/.local/share/applications
+fi
+wget https://github.com/audacity/audacity/releases/download/Audacity-4.0.1/audacity-linux-4.0.1-x86_64.AppImage
+cp audacity-linux-4.0.1-x86_64.AppImage /home/kenneth/Documents/AppImages/
+cp Audacity4.desktop /home/kenneth/.local/share/applications
+chown -R kenneth:kenneth /home/kenneth/Documents/AppImages
+chmod +x /home/kenneth/Documents/AppImages/audacity-linux-4.0.1-x86_64.AppImage
+chown -R kenneth:kenneth /home/kenneth/.local/share/applications
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
 usermod -aG libvirt kenneth
