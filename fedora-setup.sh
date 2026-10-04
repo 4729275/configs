@@ -42,6 +42,7 @@ cp Audacity4.svg /opt/
 cp Audacity4.desktop /home/kenneth/.local/share/applications
 chown kenneth:kenneth /opt/Audacity4.AppImage
 chmod a+x /opt/Audacity4.AppImage
+chown kenneth:kenneth /opt/Audacity4.svg
 wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-next-${CHIRP_VERSION}-x86_64.AppImage
 mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
 cp CHIRP.AppImage /opt/
@@ -49,6 +50,7 @@ cp CHIRP.ico /opt/
 cp CHIRP.desktop /home/kenneth/.local/share/applications
 chown kenneth:kenneth /opt/CHIRP.AppImage
 chmod a+x /opt/CHIRP.AppImage
+chown kenneth:kenneth /opt/CHIRP.ico
 chown -R kenneth:kenneth /home/kenneth/.local/share/applications
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
