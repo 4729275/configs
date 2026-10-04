@@ -7,7 +7,6 @@ echo "Arch Linux Setup, User Portion - Kenneth Simmons, 2026"
 
 # Install AUR helper
 echo "Installing AUR helper - manual confirmation required:"
-cd /home/kenneth
 git clone https://aur.archlinux.org/paru
 cd paru
 makepkg -si
@@ -31,6 +30,20 @@ sudo systemctl enable --now teamviewerd
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
 flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
+
+# Install AppImages
+echo "Installing AppImages - manual confirmation required:"
+CHIRP_VERSION=20261002
+if [ ! -d /home/kenneth/.local/share/applications ]; then
+mkdir /home/kenneth/.local/share/applications
+fi
+wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-next-${CHIRP_VERSION}-x86_64.AppImage
+mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
+sudo cp CHIRP.AppImage /opt/
+sudo cp CHIRP.ico /opt/
+cp CHIRP.desktop /home/kenneth/.local/share/applications
+chown kenneth:kenneth /opt/CHIRP.AppImage
+chmod a+x /opt/CHIRP.AppImage
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
