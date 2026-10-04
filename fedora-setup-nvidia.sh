@@ -34,18 +34,25 @@ mokutil --import /etc/pki/akmods/certs/public_key.der
 dnf install akmod-nvidia -y
 dnf install adw-gtk3-theme eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
 flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
-if [ ! -d /home/kenneth/Documents/AppImages ]; then
-mkdir /home/kenneth/Documents/AppImages
-fi
+AUDACITY_VERSION=4.0.1
+CHIRP_VERSION=20261002
 if [ ! -d /home/kenneth/.local/share/applications ]; then
 mkdir /home/kenneth/.local/share/applications
 fi
-wget https://github.com/audacity/audacity/releases/download/Audacity-4.0.1/audacity-linux-4.0.1-x86_64.AppImage
-cp audacity-linux-4.0.1-x86_64.AppImage /home/kenneth/Documents/AppImages/
-cp Audacity4.svg /home/kenneth/Documents/AppImages/
+wget https://github.com/audacity/audacity/releases/download/Audacity-${AUDACITY_VERSION}/audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage
+mv audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage Audacity4.AppImage
+cp Audacity4.AppImage /opt/
+cp Audacity4.svg /opt/
 cp Audacity4.desktop /home/kenneth/.local/share/applications
-chown -R kenneth:kenneth /home/kenneth/Documents/AppImages
-chmod +x /home/kenneth/Documents/AppImages/audacity-linux-4.0.1-x86_64.AppImage
+chown kenneth:kenneth /opt/Audacity4.AppImage
+chmod a+x /opt/Audacity4.AppImage
+wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-next-${CHIRP_VERSION}-x86_64.AppImage
+mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
+cp CHIRP.AppImage /opt/
+cp CHIRP.ico /opt/
+cp CHIRP.desktop /home/kenneth/.local/share/applications
+chown kenneth:kenneth /opt/CHIRP.AppImage
+chmod a+x /opt/CHIRP.AppImage
 chown -R kenneth:kenneth /home/kenneth/.local/share/applications
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
