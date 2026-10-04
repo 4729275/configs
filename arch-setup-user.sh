@@ -42,8 +42,8 @@ mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
 sudo cp CHIRP.AppImage /opt/
 sudo cp CHIRP.ico /opt/
 cp CHIRP.desktop /home/kenneth/.local/share/applications
-chown kenneth:kenneth /opt/CHIRP.AppImage
-chmod a+x /opt/CHIRP.AppImage
+sudo chown kenneth:kenneth /opt/CHIRP.AppImage
+sudo chmod a+x /opt/CHIRP.AppImage
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
