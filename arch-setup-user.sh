@@ -44,6 +44,7 @@ sudo cp CHIRP.ico /opt/
 cp CHIRP.desktop /home/kenneth/.local/share/applications
 sudo chown kenneth:kenneth /opt/CHIRP.AppImage
 sudo chmod a+x /opt/CHIRP.AppImage
+sudo chown kenneth:kenneth /opt/CHIRP.ico
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
