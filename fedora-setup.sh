@@ -39,7 +39,7 @@ wget https://github.com/audacity/audacity/releases/download/Audacity-${AUDACITY_
 mv audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage Audacity4.AppImage
 cp Audacity4.AppImage /opt/
 cp Audacity4.svg /opt/
-cp Audacity4.desktop /home/kenneth/.local/share/applications
+cp Audacity4.desktop /home/kenneth/.local/share/applications/
 chown kenneth:kenneth /opt/Audacity4.AppImage
 chmod a+x /opt/Audacity4.AppImage
 chown kenneth:kenneth /opt/Audacity4.svg
@@ -47,7 +47,7 @@ wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-nex
 mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
 cp CHIRP.AppImage /opt/
 cp CHIRP.ico /opt/
-cp CHIRP.desktop /home/kenneth/.local/share/applications
+cp CHIRP.desktop /home/kenneth/.local/share/applications/
 chown kenneth:kenneth /opt/CHIRP.AppImage
 chmod a+x /opt/CHIRP.AppImage
 chown kenneth:kenneth /opt/CHIRP.ico
