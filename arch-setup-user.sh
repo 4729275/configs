@@ -24,7 +24,7 @@ rm qt5-webchannel-5.15.19-1-x86_64.pkg.tar.zst
 wget https://repo.arcanis.me/arcanisrepo/x86_64/qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
 sudo pacman -U ./qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
 rm qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
-paru -S audacity4-bin makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-bin zoom
+paru -S makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-bin zoom
 sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
@@ -33,15 +33,24 @@ flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussai
 
 # Install AppImages
 echo "Installing AppImages - manual confirmation required:"
+AUDACITY_VERSION=4.0.1
 CHIRP_VERSION=20261002
 if [ ! -d /home/kenneth/.local/share/applications ]; then
 mkdir /home/kenneth/.local/share/applications
 fi
+wget https://github.com/audacity/audacity/releases/download/Audacity-${AUDACITY_VERSION}/audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage
+mv audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage Audacity4.AppImage
+sudo cp Audacity4.AppImage /opt/
+sudo cp Audacity4.svg /opt/
+cp Audacity4.desktop /home/kenneth/.local/share/applications/
+sudo chown kenneth:kenneth /opt/Audacity4.AppImage
+sudo chmod a+x /opt/Audacity4.AppImage
+sudo chown kenneth:kenneth /opt/Audacity4.svg
 wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-next-${CHIRP_VERSION}-x86_64.AppImage
 mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
 sudo cp CHIRP.AppImage /opt/
 sudo cp CHIRP.ico /opt/
-cp CHIRP.desktop /home/kenneth/.local/share/applications
+cp CHIRP.desktop /home/kenneth/.local/share/applications/
 sudo chown kenneth:kenneth /opt/CHIRP.AppImage
 sudo chmod a+x /opt/CHIRP.AppImage
 sudo chown kenneth:kenneth /opt/CHIRP.ico
