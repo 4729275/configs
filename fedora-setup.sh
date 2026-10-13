@@ -38,12 +38,11 @@ usermod -aG libvirt kenneth
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
+flatpak install -y flathub com.chirpmyradio.chirp com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
 
 # Install AppImages
 echo "Installing AppImages:"
 AUDACITY_VERSION=4.0.1
-CHIRP_VERSION=20261002
 if [ ! -d /home/kenneth/.local/share/applications ]; then
 mkdir /home/kenneth/.local/share/applications
 fi
@@ -55,14 +54,6 @@ cp Audacity4.desktop /home/kenneth/.local/share/applications/
 chown kenneth:kenneth /opt/Audacity4.AppImage
 chmod a+x /opt/Audacity4.AppImage
 chown kenneth:kenneth /opt/Audacity4.svg
-wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-next-${CHIRP_VERSION}-x86_64.AppImage
-mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
-cp CHIRP.AppImage /opt/
-cp CHIRP.ico /opt/
-cp CHIRP.desktop /home/kenneth/.local/share/applications/
-chown kenneth:kenneth /opt/CHIRP.AppImage
-chmod a+x /opt/CHIRP.AppImage
-chown kenneth:kenneth /opt/CHIRP.ico
 chown -R kenneth:kenneth /home/kenneth/.local/share/applications
 
 # Configure dnf
