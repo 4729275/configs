@@ -39,7 +39,7 @@ dnf install libva-nvidia-driver -y
 
 # Install packages
 echo "Installing packages:"
-dnf install adw-gtk3-theme eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
+dnf install adw-gtk3-theme eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback libxcrypt-compat nextcloud-client nodejs24 obs-studio python3.11 python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
 usermod -aG libvirt kenneth
