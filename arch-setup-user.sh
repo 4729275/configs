@@ -29,7 +29,7 @@ sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
-flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
+flatpak install -y flathub com.chirpmyradio.chirp com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
 
 # Install AppImages
 echo "Installing AppImages - manual confirmation required:"
@@ -46,14 +46,6 @@ cp Audacity4.desktop /home/kenneth/.local/share/applications/
 sudo chown kenneth:kenneth /opt/Audacity4.AppImage
 sudo chmod a+x /opt/Audacity4.AppImage
 sudo chown kenneth:kenneth /opt/Audacity4.svg
-wget https://archive.chirpmyradio.com/chirp_next/next-${CHIRP_VERSION}/Chirp-next-${CHIRP_VERSION}-x86_64.AppImage
-mv Chirp-next-${CHIRP_VERSION}-x86_64.AppImage CHIRP.AppImage
-sudo cp CHIRP.AppImage /opt/
-sudo cp CHIRP.ico /opt/
-cp CHIRP.desktop /home/kenneth/.local/share/applications/
-sudo chown kenneth:kenneth /opt/CHIRP.AppImage
-sudo chmod a+x /opt/CHIRP.AppImage
-sudo chown kenneth:kenneth /opt/CHIRP.ico
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
