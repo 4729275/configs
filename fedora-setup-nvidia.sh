@@ -20,20 +20,36 @@ echo "Updating the system:"
 dnf upgrade -y
 flatpak update
 
-# Install packages
-echo "Installing packages:"
+# Enable RPM Fusion
+echo "Enabling RPM Fusion:"
 dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 dnf config-manager setopt fedora-cisco-openh264.enabled=1
 dnf install rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data -y
 dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 dnf install intel-media-driver -y
+
+# Install NVIDIA drivers
+echo "Installing NVIDIA drivers:"
 dnf install kmodtool akmods mokutil openssl -y
 kmodgenca -a
 mokutil --import /etc/pki/akmods/certs/public_key.der
-dnf install akmod-nvidia -y
+dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda -y
+dnf install libva-nvidia-driver -y
+
+# Install packages
+echo "Installing packages:"
 dnf install adw-gtk3-theme eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
+sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
+systemctl enable --now libvirtd
+usermod -aG libvirt kenneth
+
+# Install Flatpak packages
+echo "Installing Flatpak packages:"
 flatpak install -y flathub com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
+
+# Install AppImages
+echo "Installing AppImages:"
 AUDACITY_VERSION=4.0.1
 CHIRP_VERSION=20261002
 if [ ! -d /home/kenneth/.local/share/applications ]; then
@@ -56,9 +72,6 @@ chown kenneth:kenneth /opt/CHIRP.AppImage
 chmod a+x /opt/CHIRP.AppImage
 chown kenneth:kenneth /opt/CHIRP.ico
 chown -R kenneth:kenneth /home/kenneth/.local/share/applications
-sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
-systemctl enable --now libvirtd
-usermod -aG libvirt kenneth
 
 # Configure dnf
 echo "Configuring dnf:"
