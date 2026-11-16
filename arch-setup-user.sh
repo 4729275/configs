@@ -24,28 +24,12 @@ rm qt5-webchannel-5.15.19-1-x86_64.pkg.tar.zst
 wget https://repo.arcanis.me/arcanisrepo/x86_64/qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
 sudo pacman -U ./qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
 rm qt5-webengine-5.15.19-4.2-x86_64.pkg.tar.zst
-paru -S makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-bin zoom
+paru -S audacity4-bin makemkv minecraft-launcher mullvad-vpn-bin opencl-amd teamviewer ventoy-bin zoom
 sudo systemctl enable --now teamviewerd
 
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
 flatpak install -y flathub com.chirpmyradio.chirp com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop io.gitlab.news_flash.NewsFlash org.onlyoffice.desktopeditors org.gnome.World.PikaBackup
-
-# Install AppImages
-echo "Installing AppImages - manual confirmation required:"
-AUDACITY_VERSION=4.0.1
-CHIRP_VERSION=20261002
-if [ ! -d /home/kenneth/.local/share/applications ]; then
-mkdir /home/kenneth/.local/share/applications
-fi
-wget https://github.com/audacity/audacity/releases/download/Audacity-${AUDACITY_VERSION}/audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage
-mv audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage Audacity4.AppImage
-sudo cp Audacity4.AppImage /opt/
-sudo cp Audacity4.svg /opt/
-cp Audacity4.desktop /home/kenneth/.local/share/applications/
-sudo chown kenneth:kenneth /opt/Audacity4.AppImage
-sudo chmod a+x /opt/Audacity4.AppImage
-sudo chown kenneth:kenneth /opt/Audacity4.svg
 
 # Configure bash prompt
 echo "Configuring bash prompt:"
