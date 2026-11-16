@@ -31,7 +31,7 @@ dnf install intel-media-driver -y
 
 # Install packages
 echo "Installing packages:"
-dnf install adw-gtk3-theme eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
+dnf install adw-gtk3-theme audacity-freeworld eza fastfetch gimp gnome-tweaks google-noto-sans-cjk-fonts google-roboto-fonts htop inkscape java-latest-openjdk kid3 kmod-v4l2loopback nextcloud-client nodejs24 obs-studio python3-tkinter qemu rhythmbox texlive-collection-latex texstudio vim-enhanced virt-manager vlc wireguard-tools xournalpp yt-dlp -y
 sed -i 's/#firewall_backend = "nftables"/firewall_backend = "iptables"/g' /etc/libvirt/network.conf
 systemctl enable --now libvirtd
 usermod -aG libvirt kenneth
@@ -39,22 +39,6 @@ usermod -aG libvirt kenneth
 # Install Flatpak packages
 echo "Installing Flatpak packages:"
 flatpak install -y flathub com.chirpmyradio.chirp com.github.tchx84.Flatseal io.github.realmazharhussain.GdmSettings org.jellyfin.JellyfinDesktop org.onlyoffice.desktopeditors net.nokyan.Resources
-
-# Install AppImages
-echo "Installing AppImages:"
-AUDACITY_VERSION=4.0.1
-if [ ! -d /home/kenneth/.local/share/applications ]; then
-mkdir /home/kenneth/.local/share/applications
-fi
-wget https://github.com/audacity/audacity/releases/download/Audacity-${AUDACITY_VERSION}/audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage
-mv audacity-linux-${AUDACITY_VERSION}-x86_64.AppImage Audacity4.AppImage
-cp Audacity4.AppImage /opt/
-cp Audacity4.svg /opt/
-cp Audacity4.desktop /home/kenneth/.local/share/applications/
-chown kenneth:kenneth /opt/Audacity4.AppImage
-chmod a+x /opt/Audacity4.AppImage
-chown kenneth:kenneth /opt/Audacity4.svg
-chown -R kenneth:kenneth /home/kenneth/.local/share/applications
 
 # Configure dnf
 echo "Configuring dnf:"
